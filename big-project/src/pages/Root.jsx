@@ -9,10 +9,20 @@ function Menu() {
     };
   
     return (
-      <div className={`burger-menu ${isActive ? 'active' : ''}`} onClick={activateMenu}>
-        <span className="menu-global menu-top"></span>
-        <span className="menu-global menu-middle"></span>
-        <span className="menu-global menu-bottom"></span>
+      <div className="menu">
+        <div className={`burger-menu ${isActive ? 'active' : ''}`} onClick={activateMenu}>
+          <span className="menu-global menu-top"></span>
+          <span className="menu-global menu-middle"></span>
+          <span className="menu-global menu-bottom"></span>
+          {isActive && (
+            <div className={`menu-links ${isActive ? 'active' : ''}`}>
+              <a href="/home">Home</a>
+              <a href="/about">About</a>
+              <a href="/contact">Contact</a>
+              {/* Add more links as needed */}
+            </div>
+          )}
+        </div>
       </div>
     );
 }

@@ -33,6 +33,43 @@ header{
   width: auto;
 }
 
+.menu{
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.menu-links{
+  position: absolute;
+  top: 50px;
+  right: -10px;
+  width: 33vw;
+  height: auto;
+  background-color: #084C61;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: "Quicksand", sans-serif;
+  padding: 10px;
+  animation: fadeIn 1.8s;
+  z-index: 1;
+}
+
+.menu-links a{
+  color: white;
+  text-decoration: none;
+  margin-top: 5px;
+}
+
 .burger-menu {
   cursor: pointer;
   padding-left: 1.25em;
