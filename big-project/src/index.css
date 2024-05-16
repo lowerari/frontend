@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Quicksand:wght@300..700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* root */
+
+header{
+  background-color: #084C61;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.root-page{
+  height: 100vh;
+}
+
+.logo{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img{
+  height: 50px;
+  width: auto;
+}
+
+.burger-menu {
+  cursor: pointer;
+  padding-left: 1.25em;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin-top: auto;
+}
+
+.menu-global {
+  backface-visibility: hidden;
+  position: absolute;
+  left: 0;
+  border-top: 5px solid white;
+  width: 100%;
+  transition: 0.55s;
+  border-radius: 2px;
+}
+
+.menu-top {
+  top: 0;
+}
+.menu-middle {
+  top: 12px;
+}
+.menu-bottom {
+  top: 24px;
+}
+
+.active .menu-top {
+  backface-visibility: hidden;
+  top: 15px;
+  transform: rotate(50deg);
+  transition: 0.55s 0.5s;
+}
+.active .menu-middle {
+  opacity: 0;
+}
+.active .menu-bottom {
+  backface-visibility: hidden;
+  top: 15px;
+  transform: rotate(-410deg);
+  transition: 0.55s 0.5s;
+}
+
+footer{
+  background-color: #084C61;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  font-family: "Quicksand", sans-serif;
+  font-size: .7em;
+}
+
+.footer-links{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5px;
+}
+
+.copyright{
+  display: flex;
+  align-items: flex-end;
+}
+
+/* home */
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero{
+  position: relative;
+  height: 211px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero img{
+  width: 100%;
+  height: auto;
+  opacity: 0.5;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.771);
+}
+
+.hero p{
+  font-family: "Dancing Script", cursive;
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: 600;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.sign-up{
+  margin-top: 20px;
+  background-color: #9E788F;
+  color: white;
+  height: 30px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Quicksand", sans-serif;
+  box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.75);
+  cursor: pointer;
+}
+
+.sign-up:hover{
+  background-color: #9e788fd8;
+}
+
+.sign-up:active{
+  background-color: #8a687d;
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.75);
+}
+
+.info{
+  margin-top: 20px;
+  width: 100%;
+  font-family: "Quicksand", sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #084C61;
+  color: white;
+  padding: 10px;
+}
+
+.heading{
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.icons{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-family: "Quicksand", sans-serif;
+  font-size: .8em;
+}
+
+.icons img{
+  height: 25px;
+  width: auto;
+}
+
+.icon{
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.icon.mindfulness{
+  background-color: #9E788F;
+}
+
+.icon.distress{
+  background-color: #F4A261;
+}
+
+.icon.emotion{
+  background-color: #A9B3CE;
+}
+
+.icon.interpersonal{
+  background-color: #E9C46A;
+}
+
+.skill{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+}
+
+.skill p{
+  text-align: center;
+}
+
+.features-cards{
+  height: auto;
+  background-color: lightgray;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  width: 100%;
+  font-family: "Quicksand", sans-serif;
+}
+
+.card{
+  background-color: white;
+  width: 90%;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.75);
+}
+
+.picture{
+  width: 150px;
+}
+
+.picture img{
+  width: 100%;
+  height: auto;
+}
+
+.text{
+  padding: 10px;
+  width: 75%;
+}
+
+.text h1{
+  font-size: 1.1em;
+}
+
+.text p{
+  font-size: .9em;
+}
+
