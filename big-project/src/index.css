@@ -197,6 +197,10 @@ main{
   box-shadow: inset 1px 1px 2px rgba(0,0,0,0.75);
 }
 
+a{
+  text-decoration: none;
+}
+
 .info{
   margin-top: 20px;
   width: 100%;
@@ -307,3 +311,349 @@ main{
   font-size: .9em;
 }
 
+/* Sign Up */
+
+.signup-page{
+  font-family: "Quicksand", sans-serif;
+  padding: 20px;
+}
+
+.signup-page h1{
+  margin-top: 20px;
+  font-size: 1.2em;
+}
+
+.signup-page form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.formContainer{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.formContainer input{
+  width: 100%;
+  height: 30px;
+  padding: 5px;
+  font-family: "Quicksand", sans-serif;
+}
+
+.formContainer input:focus-visible{
+  outline: none;
+  border: 3px solid #9E788F;
+}
+
+form button{
+  background-color: #9E788F;
+  color: white;
+  height: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1em;
+  box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.75);
+  cursor: pointer;
+  border: none;
+  margin-top: 10px;
+}
+
+form button:active{
+  background-color: #8a687d;
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.75);
+}
+
+/* Log In */
+
+.login-page{
+  font-family: "Quicksand", sans-serif;
+  padding: 20px;
+}
+
+.login-page h1{
+  margin-top: 20px;
+  font-size: 1.2em;
+}
+
+.login-page form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.signUpRedirect{
+  margin-top: 15px;
+  font-size: .9em;
+  display: flex;
+}
+
+.signUpRedirect a{
+  color: #084C61;
+  margin-left: 5px;
+}
+
+.signUpRedirect a:active{
+  color: #F4A261;
+}
+
+/* Profile Page */
+
+.profile-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-header{
+  background-color: #9E788F;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Quicksand", sans-serif;
+  height: 200px;
+  width: 100%;
+  box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.229);
+}
+
+.profile-image{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: lightgray;
+  overflow: hidden;
+}
+
+.profile-image img{
+  height: 100%;
+  width: auto;
+}
+
+.profile-header .username{
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.dbtDiary{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.242);
+  width: 90%;
+  font-family: "Quicksand", sans-serif;
+}
+
+.dbtDiary p{
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.day-icons{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 10px 0px;
+}
+
+.day{
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #F4A261;
+}
+
+.day.active{
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F4A261;
+  color: white;
+}
+
+.viewDiaryContainer{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+  margin-bottom: 10px;
+}
+
+.viewDiaryButton{
+  background-color: #9E788F;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.75);
+  cursor: pointer;
+}
+
+.viewDiaryButton:active{
+  background-color: #8a687d;
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.75);
+}
+
+.courses{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.242);
+  width: 90%;
+  font-family: "Quicksand", sans-serif;
+}
+
+.courses p{
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.course{
+  display: flex;
+  width: 100%;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  cursor: not-allowed;
+}
+
+.course.active{
+  cursor: pointer;
+}
+
+.course-icon{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(128, 128, 128, 0.547);
+}
+
+.active .course-icon.mindfulness{
+  background-color: #9E788F;
+}
+
+.active .course-icon.distress{
+  background-color: #F4A261;
+}
+
+.active .course-icon.emotion{
+  background-color: #A9B3CE;
+}
+
+.active .course-icon.interpersonal{
+  background-color: #E9C46A;
+}
+
+.course-icon img{
+  height: 25px;
+  width: auto;
+}
+
+.course-name{
+  height: 40px;
+  display: flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.281);
+}
+
+.active .course-name{
+  color: black;
+}
+
+.skills{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.242);
+  width: 90%;
+  font-family: "Quicksand", sans-serif;
+  margin-bottom: 65px;
+}
+
+.skills p{
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.skillsContainer{
+  display: flex;
+  justify-content: space-between;
+  font-size: .7em;
+  margin: 10px 5px; 
+}
+
+.skillsContainer .skill{
+  border: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.skill.mindfulness{
+  background-color: #9E788F;
+}
+
+.skill.distress{
+  background-color: #F4A261;
+}
+
+.skill.emotion{
+  background-color: #A9B3CE;
+}
+
+.skill.interpersonal{
+  background-color: #E9C46A;
+}
+
+.skill-icon{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: white;
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.skill-icon img{
+  height: 25px;
+  width: auto;
+}
+
+.skill-text{
+  text-align: center;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}

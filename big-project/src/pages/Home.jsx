@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function Home() {
     return(
         <div className="home-page">
@@ -6,7 +8,9 @@ export default function Home() {
                     <img src="src/pictures/thomas-rey-Oadvsf3xH9E-unsplash.jpg" alt="Photo by Thomas Rey on Unsplash" />
                     <p>The journey towards living the life you want begins here</p>
                 </div>
-                <div className="sign-up">Sign Up</div>
+                <Link to="/signup">
+                    <div className="sign-up">Sign Up</div>
+                </Link>
                 <div className="info">
                     <p className="heading">Learn Life Skills</p>
                     <div className="icons">

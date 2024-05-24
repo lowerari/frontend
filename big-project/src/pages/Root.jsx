@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 function Menu() {
     const [isActive, setIsActive] = useState(false);
@@ -16,9 +16,9 @@ function Menu() {
           <span className="menu-global menu-bottom"></span>
           {isActive && (
             <div className={`menu-links ${isActive ? 'active' : ''}`}>
-              <a href="/home">Home</a>
-              <a href="/about">About</a>
-              <a href="/contact">Contact</a>
+              <Link to="/">Home</Link>
+              <Link to="/login">Log In</Link>
+              <Link to="/signup">Sign Up</Link>
               {/* Add more links as needed */}
             </div>
           )}
@@ -27,7 +27,7 @@ function Menu() {
     );
 }
 
-export default function Home() {
+export default function Root() {
   return (
     <div className="root-page">
       <header>
