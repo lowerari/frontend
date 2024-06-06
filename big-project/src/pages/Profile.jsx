@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Profile() {
     return (
         <div className="profile-page">
@@ -18,9 +20,11 @@ export default function Profile() {
                     <div className="day">Sa</div>
                     <div className="day">Su</div>
                 </div>
-                <div className="viewDiaryContainer">
-                    <div className="viewDiaryButton">View Diary</div>
-                </div>
+                <Link to="/diary_overview">
+                    <div className="viewDiaryContainer">
+                        <div className="viewDiaryButton">View Diary</div>
+                    </div>
+                </Link>
             </div>
             <div className="courses">
                 <p>Courses</p>
