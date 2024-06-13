@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
+import { IoReturnDownBack } from "react-icons/io5";
 
 import DiaryModal from "./DiaryModal"
 
@@ -7,6 +9,14 @@ export default function DiaryOverview() {
 
     return (
         <div className="DiaryOverview">
+            <Link to='/profile'>
+                <div className="backButton">
+                    Back 
+                    <div className="backArrow">
+                        <IoReturnDownBack />
+                    </div>
+                </div>
+            </Link>
             <div className="diaryDates">
                 <div className="diaryDatesSelector">
                     <label htmlFor="datesSelector">Diary for:</label>

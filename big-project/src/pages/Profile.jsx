@@ -28,12 +28,14 @@ export default function Profile() {
             </div>
             <div className="courses">
                 <p>Courses</p>
-                <div className="course active">
-                    <div className="course-icon mindfulness">
-                        <img src="src/pictures/icons8-mind-50.png" alt="" />
+                <Link to='/course/mindfulness'>
+                    <div className="course active">
+                        <div className="course-icon mindfulness">
+                            <img src="src/pictures/icons8-mind-50.png" alt="" />
+                        </div>
+                        <div className="course-name">Mindfulness</div>
                     </div>
-                    <div className="course-name">Mindfulness</div>
-                </div>
+                </Link>
                 <div className="course active">
                     <div className="course-icon distress">
                         <img src="src/pictures/icons8-calm-64.png" alt="" />
