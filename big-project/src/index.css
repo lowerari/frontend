@@ -6,6 +6,12 @@
   box-sizing: border-box;
 }
 
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 /* root------------------------------------------------------------------------------------------------------------------ */
 
 header{
@@ -120,12 +126,13 @@ footer{
   padding: 10px;
   display: flex;
   justify-content: space-between;
-  position: fixed;
-  bottom: 0;
+  /* position: fixed;
+  bottom: 0; */
   width: 100%;
   color: white;
   font-family: "Quicksand", sans-serif;
   font-size: .7em;
+  margin-top: auto;
 }
 
 .footer-links{
@@ -531,6 +538,10 @@ form button:active{
   font-family: "Quicksand", sans-serif;
 }
 
+.courses a{
+  width: 100%;
+}
+
 .courses p{
   font-size: 1.1em;
   font-weight: 600;
@@ -600,7 +611,7 @@ form button:active{
   box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.242);
   width: 90%;
   font-family: "Quicksand", sans-serif;
-  margin-bottom: 65px;
+  margin-bottom: 10px;
 }
 
 .skills p{
@@ -665,6 +676,24 @@ form button:active{
 /* Diary Overview---------------------------------------------------------------------------------------------------- */
 .DiaryOverview{
   font-family: "Quicksand", sans-serif;
+}
+
+.backButton{
+  display: flex;
+  padding-top: 10px;
+  padding-left: 5px;
+  width: 20%;
+}
+
+.backButton:active{
+  text-decoration: underline;
+}
+
+.backButton .backArrow{
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 21px;
 }
 
 .diaryDates{
@@ -801,7 +830,7 @@ form button:active{
 .progressReport{
   background-color: #9E788F;
   width: 100%;
-  margin-bottom: 65px;
+  margin-bottom: 20px;
   color: white;
   padding: 10px;
 }
@@ -899,38 +928,164 @@ form button:active{
 }
 
 .modal {
-  width: 250px;
-  height: 170px;
+  width: 100vw;
+  height: 100vh;
   background: white;
   color: white;
   z-index: 10;
-  border-radius: 16px;
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  overflow: auto;
 }
 
 .modalHeader {
-  height: 50px;
+  /* height: 50px; */
   background: white;
   overflow: hidden;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
+  padding-top: 30px;
 }
 
 
 .heading {
   margin: 0;
   padding: 10px;
-  color: #2c3e50;
-  font-weight: 500;
-  font-size: 18px;
+  color: black;
+  font-weight: 600;
+  font-size: 1.1rem;
   text-align: center;
 }
 
 .modalContent {
   padding: 10px;
   font-size: 14px;
-  color: #2c3e50;
-  text-align: center;
+  color: black;
+  /* text-align: center; */
+}
+
+.ratingsContainer{
+  background-color: #9E788F;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.ratingsContainer p{
+  color: white;
+  font-size: 1.1rem;
+}
+
+.urgesRatings{
+  background-color: white;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.urgesRatings .listHeading{
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.urgesList .urge{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.urge .urgeName{
+  width: 105px;
+}
+
+.radio{
+  display: block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  padding-left: 10px;
+}
+
+.radio input{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  top: 2px;
+  right: 0px;
+  z-index: 1;
+}
+
+.radio .radioButton{
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 14px;
+  width: 14px;
+  background-color: #d5d4d4;
+  border-radius: 50%;
+}
+
+.radio input:checked ~ .radioButton{
+  background-color: #9E788F;
+}
+
+.emotionsRatings{
+  background-color: white;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.emotionsRatings .listHeading{
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.drugsContainer{
+  background-color: white;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.drugsContainer .listHeading{
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.drug{
+  margin-bottom: 5px;
+}
+
+.drug label{
+  width: 130px;
+  display: inline-block;
+}
+
+.drug input{
+  width: 50px;
+}
+
+.drug input:focus-visible{
+  outline: none;
+  border: 2px solid #9E788F;
+}
+
+.ratingsContainer p{
+  display: flex;
+}
+
+.infoButton{
+  display: flex;
+  width: 30px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.skillsUseRadioButtons{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: white;
 }
 
 .modalActions {
@@ -946,20 +1101,109 @@ form button:active{
   align-items: center;
 }
 
+.skillsPracticedList{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+/* Customize the label (the container) */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: white;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1rem;
+  width: 1rem;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #F4A261;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 5px;
+  top: 1px;
+  width: 4px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.notesContainer{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.notesContainer textarea{
+  width: 100%;
+  padding: 10px;
+  font-family: "Quicksand", sans-serif;
+}
+
+.invisodiv{
+  margin-bottom: 60px;
+}
+
 .closeBtn {
   cursor: pointer;
   font-weight: 500;
   padding: 4px 8px;
   border-radius: 8px;
   border: none;
-  font-size: 18px;
-  color: #2c3e50;
-  background: white;
+  font-size: 2rem;
+  color: black;
+  background: none;
   transition: all 0.25s ease;
-  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.06);
   position: absolute;
-  right: 0;
-  top: 0;
+  left: 0;
+  top: 5px;
   align-self: flex-end;
   margin-top: -7px;
   margin-right: -7px;
@@ -975,12 +1219,12 @@ form button:active{
   cursor: pointer;
   font-weight: 500;
   padding: 11px 28px;
-  border-radius: 12px;
   font-size: 0.8rem;
   border: none;
   color: #fff;
-  background: #ff3e4e;
+  background-color: #9E788F ;
   transition: all 0.25s ease;
+  box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.75);
 }
 
 .deleteBtn:hover {
@@ -994,16 +1238,91 @@ form button:active{
   cursor: pointer;
   font-weight: 500;
   padding: 11px 28px;
-  border-radius: 12px;
   font-size: 0.8rem;
   border: none;
   color: #2c3e50;
-  background: #fcfcfc;
+  background: #d5d5d5;
   transition: all 0.25s ease;
+  box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.75);
 }
 
 .cancelBtn:hover {
   box-shadow: none;
   transform: none;
   background: whitesmoke;
+}
+
+/* Courses Pages---------------------------------------------------------------------------------------------------------- */
+.coursePage{
+  font-family: "Quicksand", sans-serif;
+  padding: 10px;
+}
+
+.courseBanner{
+  width: 100%;
+  height: 4rem;
+  background-image: url(/src/pictures/william-farlow-IevaZPwq0mw-unsplash.jpg);
+  box-shadow: inset 0 0 0 1000px rgba(246, 246, 246, 0.453);
+  background-size: cover;
+  background-position: 0px 170px;
+  font-family: "Dancing Script", cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.courseBanner p{
+  font-size: 2rem;
+  font-weight: 600;
+  text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5);
+}
+
+.courseInfo{
+  background-color: #9E788F;
+  color: white;
+  margin-top: 10px;
+  padding: 15px;
+}
+
+.courseInfo .title{
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.courseInfo .courseDescription{
+  margin-top: 10px;
+}
+
+.subCourse{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.courseSubHeader{
+  font-size: 1.5rem;
+  position: relative;
+}
+
+.courseSubHeader::after{
+  content: "";
+  display: block;
+  width: 30px;
+  height: 2px;
+  background-color: black;
+  left: -35px;
+  top: 50%;
+  position: absolute;
+}
+
+.courseSubHeader::before{
+  content: "";
+  display: block;
+  width: 30px;
+  height: 2px;
+  background-color: black;
+  right: -35px;
+  top: 50%;
+  position: absolute;
 }

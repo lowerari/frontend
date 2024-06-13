@@ -7,6 +7,7 @@ import SignUp from './pages/SignUp'
 import Login from './pages/Login'
 import Profile from './pages/Profile'
 import DiaryOverview from './pages/DiaryOverview'
+import MindfulnessCourse from './pages/MindfulnessCourse'
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: '/diary_overview',
         element: <DiaryOverview />
+      },
+      {
+        path: '/course/mindfulness',
+        element: <MindfulnessCourse />
       }
     ],
   }
