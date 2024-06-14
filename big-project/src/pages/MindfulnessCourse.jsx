@@ -4,7 +4,7 @@ import { FaPencilAlt } from "react-icons/fa";
 export default function MindfulnessCourse() {
     return(
         <div className="coursePage">
-            <div className="courseBanner">
+            <div className="courseBanner mindfulness">
                 <p>Mindfulness</p>
             </div>
             <div className="courseInfo">
@@ -38,6 +38,62 @@ export default function MindfulnessCourse() {
                 <div className="coursePractice"><FaPencilAlt /></div>
                 <div className="courseQuiz"><FaTrophy /></div>
                 <div className="subCourseName">Analyzing Missing Links</div>
+                <div className="courseLesson"><FaBookOpenReader /></div>
+                <div className="coursePractice"><FaPencilAlt /></div>
+                <div className="courseQuiz"><FaTrophy /></div>
+            </div>
+            <div className="subCourse">
+                <div className="courseSubHeader">Intro to Mindfulness</div>
+                <div className="subCourseName">Goals of Mindfulness Practice</div>
+                <div className="courseLesson"><FaBookOpenReader /></div>
+                <div className="coursePractice"><FaPencilAlt /></div>
+                <div className="courseQuiz"><FaTrophy /></div>
+                <div className="subCourseName">Wise Mind</div>
+                <div className="courseLesson"><FaBookOpenReader /></div>
+                <div className="coursePractice"><FaPencilAlt /></div>
+                <div className="courseQuiz"><FaTrophy /></div>
+            </div>
+            <div className="subCourse">
+                <div className="courseSubHeader">Mindfulness "What" Skills</div>
+                <div className="subCourseName">Observe</div>
+                <div className="courseLesson"><FaBookOpenReader /></div>
+                <div className="coursePractice"><FaPencilAlt /></div>
+                <div className="courseQuiz"><FaTrophy /></div>
+                <div className="subCourseName">Describe</div>
+                <div className="courseLesson"><FaBookOpenReader /></div>
+                <div className="coursePractice"><FaPencilAlt /></div>
+                <div className="courseQuiz"><FaTrophy /></div>
+                <div className="subCourseName">Participate</div>
+                <div className="courseLesson"><FaBookOpenReader /></div>
+                <div className="coursePractice"><FaPencilAlt /></div>
+                <div className="courseQuiz"><FaTrophy /></div>
+            </div>
+            <div className="subCourse">
+                <div className="courseSubHeader">Mindfulness "How" Skills</div>
+                <div className="subCourseName">Nonjudgementally</div>
+                <div className="courseLesson"><FaBookOpenReader /></div>
+                <div className="coursePractice"><FaPencilAlt /></div>
+                <div className="courseQuiz"><FaTrophy /></div>
+                <div className="subCourseName">One-Mindfully</div>
+                <div className="courseLesson"><FaBookOpenReader /></div>
+                <div className="coursePractice"><FaPencilAlt /></div>
+                <div className="courseQuiz"><FaTrophy /></div>
+                <div className="subCourseName">Effectively</div>
+                <div className="courseLesson"><FaBookOpenReader /></div>
+                <div className="coursePractice"><FaPencilAlt /></div>
+                <div className="courseQuiz"><FaTrophy /></div>
+            </div>
+            <div className="subCourse">
+                <div className="courseSubHeader">Optional Skills</div>
+                <div className="subCourseName">Mindfulness: A Spiritual Perspective</div>
+                <div className="courseLesson"><FaBookOpenReader /></div>
+                <div className="coursePractice"><FaPencilAlt /></div>
+                <div className="courseQuiz"><FaTrophy /></div>
+                <div className="subCourseName">Skillful Means: Doing Mind and Being Mind</div>
+                <div className="courseLesson"><FaBookOpenReader /></div>
+                <div className="coursePractice"><FaPencilAlt /></div>
+                <div className="courseQuiz"><FaTrophy /></div>
+                <div className="subCourseName">Wise Mind: Walking the Middle Path</div>
                 <div className="courseLesson"><FaBookOpenReader /></div>
                 <div className="coursePractice"><FaPencilAlt /></div>
                 <div className="courseQuiz"><FaTrophy /></div>

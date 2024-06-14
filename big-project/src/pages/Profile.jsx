@@ -36,52 +36,66 @@ export default function Profile() {
                         <div className="course-name">Mindfulness</div>
                     </div>
                 </Link>
-                <div className="course active">
-                    <div className="course-icon distress">
-                        <img src="src/pictures/icons8-calm-64.png" alt="" />
+                <Link to='/course/distress_tolerance'>
+                    <div className="course active">
+                        <div className="course-icon distress">
+                            <img src="src/pictures/icons8-calm-64.png" alt="" />
+                        </div>
+                        <div className="course-name">Distress Tolerance</div>
                     </div>
-                    <div className="course-name">Distress Tolerance</div>
-                </div>
-                <div className="course active">
-                    <div className="course-icon emotion">
-                        <img src="src/pictures/icons8-happy-64.png" alt="" />
+                </Link>
+                <Link to='/course/emotion_regulation'>
+                    <div className="course active">
+                        <div className="course-icon emotion">
+                            <img src="src/pictures/icons8-happy-64.png" alt="" />
+                        </div>
+                        <div className="course-name">Emotion Regulation</div>
                     </div>
-                    <div className="course-name">Emotion Regulation</div>
-                </div>
-                <div className="course">
-                    <div className="course-icon interpersonal">
-                        <img src="src/pictures/icons8-handshake-50.png" alt="" />
+                </Link>
+                <Link to='/course/interpersonal_effectiveness'>
+                    <div className="course">
+                        <div className="course-icon interpersonal">
+                            <img src="src/pictures/icons8-handshake-50.png" alt="" />
+                        </div>
+                        <div className="course-name">Interpersonal Effectiveness</div>
                     </div>
-                    <div className="course-name">Interpersonal Effectiveness</div>
-                </div>
+                </Link>
             </div>
             <div className="skills">
                 <p>Skills Practice</p>
                 <div className="skillsContainer">
-                    <div className="skill mindfulness">
-                        <div className="skill-icon">
-                            <img src="src/pictures/icons8-mind-50-black.png" alt="" />
+                    <Link to='/practice/mindfulness'>
+                        <div className="skill mindfulness">
+                            <div className="skill-icon">
+                                <img src="src/pictures/icons8-mind-50-black.png" alt="" />
+                            </div>
+                            <div className="skill-text">Practice Mindfulness</div>
                         </div>
-                        <div className="skill-text">Practice Mindfulness</div>
-                    </div>
-                    <div className="skill distress">
-                        <div className="skill-icon">
-                            <img src="src/pictures/icons8-calm-64-black.png" alt="" />
+                    </Link>
+                    <Link to='/practice/distress_tolerance'>
+                        <div className="skill distress">
+                            <div className="skill-icon">
+                                <img src="src/pictures/icons8-calm-64-black.png" alt="" />
+                            </div>
+                            <div className="skill-text">Practice Distress Tolerance</div>
                         </div>
-                        <div className="skill-text">Practice Distress Tolerance</div>
-                    </div>
-                    <div className="skill emotion">
-                        <div className="skill-icon">
-                            <img src="src/pictures/icons8-happy-64-black.png" alt="" />
+                    </Link>
+                    <Link to='/practice/emotion_regulation'>
+                        <div className="skill emotion">
+                            <div className="skill-icon">
+                                <img src="src/pictures/icons8-happy-64-black.png" alt="" />
+                            </div>
+                            <div className="skill-text">Practice Emotion Regulation</div>
                         </div>
-                        <div className="skill-text">Practice Emotion Regulation</div>
-                    </div>
-                    <div className="skill interpersonal">
-                        <div className="skill-icon">
-                            <img src="src/pictures/icons8-handshake-50-black.png" alt="" />
+                    </Link>
+                    <Link to='/practice/interpersonal_effectiveness'>
+                        <div className="skill interpersonal">
+                            <div className="skill-icon">
+                                <img src="src/pictures/icons8-handshake-50-black.png" alt="" />
+                            </div>
+                            <div className="skill-text">Practice Interpersonal Effectiveness</div>
                         </div>
-                        <div className="skill-text">Practice Interpersonal Effectiveness</div>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </div>
