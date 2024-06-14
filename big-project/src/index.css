@@ -323,6 +323,7 @@ a{
 .signup-page{
   font-family: "Quicksand", sans-serif;
   padding: 20px;
+  height: 100vh;
 }
 
 .signup-page h1{
@@ -382,6 +383,7 @@ form button:active{
 .login-page{
   font-family: "Quicksand", sans-serif;
   padding: 20px;
+  height: 100vh;
 }
 
 .login-page h1{
@@ -627,12 +629,20 @@ form button:active{
   margin: 10px 5px; 
 }
 
+.skillsContainer a{
+  display: flex;
+  justify-content: center;
+  max-width: 80px;
+}
+
 .skillsContainer .skill{
   border: 2px solid white;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: white;
+  min-width: 80px;
+  min-height: 105px;
 }
 
 .skill.mindfulness{
@@ -945,7 +955,7 @@ form button:active{
 }
 
 
-.heading {
+.modalHeader .heading {
   margin: 0;
   padding: 10px;
   color: black;
@@ -1037,7 +1047,7 @@ form button:active{
   margin-bottom: 5px;
 }
 
-.drugsContainer{
+.ratingsContainer .drugsContainer{
   background-color: white;
   margin-top: 10px;
   padding: 10px;
@@ -1261,14 +1271,32 @@ form button:active{
 .courseBanner{
   width: 100%;
   height: 4rem;
-  background-image: url(/src/pictures/william-farlow-IevaZPwq0mw-unsplash.jpg);
   box-shadow: inset 0 0 0 1000px rgba(246, 246, 246, 0.453);
   background-size: cover;
-  background-position: 0px 170px;
   font-family: "Dancing Script", cursive;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.courseBanner.mindfulness{
+  background-image: url(/src/pictures/william-farlow-IevaZPwq0mw-unsplash.jpg);
+  background-position: 0px 170px;
+}
+
+.courseBanner.distressTolerance{
+  background-image: url(/src/pictures/rui-xu-00pX4LOTuzo-unsplash.jpg);
+  background-position: center;
+}
+
+.courseBanner.emotionRegulation{
+  background-image: url(/src/pictures/catalin-pop-noydSJIWMSg-unsplash.jpg);
+  background-position: 0px 160px;
+}
+
+.courseBanner.interpersonalEffectiveness{
+  background-image: url(/src/pictures/duy-pham-Cecb0_8Hx-o-unsplash.jpg);
+  background-position: 0px 130px;
 }
 
 .courseBanner p{
@@ -1325,4 +1353,75 @@ form button:active{
   right: -35px;
   top: 50%;
   position: absolute;
+}
+
+.subCourseName{
+  text-decoration: underline;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.courseLesson{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #F4A261;
+  color: white;
+  position: relative;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.courseLesson::after{
+  content:"";
+  position: absolute;
+  display: block;
+  height: 20px;
+  z-index: -1;
+  top: 100%;
+  bottom: 0;
+  left: 50%;
+  border-left: 2px dotted #444;
+}
+
+.coursePractice{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #A9B3CE;
+  color: white;
+  position: relative;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.coursePractice::after{
+  content:"";
+  position: absolute;
+  display: block;
+  height: 20px;
+  z-index: -1;
+  top: 100%;
+  bottom: 0;
+  left: 50%;
+  border-left: 2px dotted #444;
+}
+
+.courseQuiz{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #E9C46A;
+  color: white;
+  margin-bottom: 10px;
+  cursor: pointer;
 }

@@ -19,6 +19,8 @@ function Menu() {
               <Link to="/">Home</Link>
               <Link to="/login">Log In</Link>
               <Link to="/signup">Sign Up</Link>
+              <Link to="/profile">My Profile</Link>
+              <Link to="/">Log Out</Link>
               {/* Add more links as needed */}
             </div>
           )}
@@ -31,9 +33,11 @@ export default function Root() {
   return (
     <div className="root-page">
       <header>
-        <div className="logo">
-          <img src="src/pictures/DBTJourney Logo.png" alt="Logo" />
-        </div>
+        <Link to="/">
+          <div className="logo">
+            <img src="src/pictures/DBTJourney Logo.png" alt="Logo" />
+          </div>
+        </Link>
         <Menu />
       </header>
       <Outlet />
