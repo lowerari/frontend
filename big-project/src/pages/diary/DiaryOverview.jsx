@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import { IoReturnDownBack } from "react-icons/io5";
 
-import DiaryModal from "./DiaryModal"
+import DiaryModal from "../../modals/DiaryModal"
 
 export default function DiaryOverview() {
     const [isOpen, setIsOpen] = useState(false);

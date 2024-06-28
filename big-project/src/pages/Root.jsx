@@ -35,7 +35,7 @@ export default function Root() {
       <header>
         <Link to="/">
           <div className="logo">
-            <img src="src/pictures/DBTJourney Logo.png" alt="Logo" />
+            <img src="/DBTJourneyLogo.png" alt="Logo" />
           </div>
         </Link>
         <Menu />
