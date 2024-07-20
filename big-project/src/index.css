@@ -40,6 +40,14 @@ header{
   width: auto;
 }
 
+.logo .logo-text{
+  display: none;
+}
+
+.desktop-menu{
+  display: none;
+}
+
 .menu{
   display: flex;
   align-items: center;
@@ -145,6 +153,7 @@ footer{
 .copyright{
   display: flex;
   align-items: flex-end;
+  flex-direction: column;
 }
 
 /* home-------------------------------------------------------------------------------------------------------------------- */
@@ -319,6 +328,11 @@ a{
   font-size: .9em;
 }
 
+.login-card .error{
+  color: red;
+  font-size: .8em;
+}
+
 /* Sign Up--------------------------------------------------------------------------------------------------------- */
 
 .signup-page{
@@ -445,11 +459,34 @@ form button:active{
   margin-bottom: 20px;
   background-color: lightgray;
   overflow: hidden;
+  cursor: pointer;
+}
+
+.profile-image::after{
+  content: "Change Image";
+  color: white;
+  font-size: .8em;
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.profile-image:hover::after{
+  display: flex;
 }
 
 .profile-image img{
   height: 100%;
-  width: auto;
+  width: 100%;
+  object-fit: cover;
+  /* makes the image fit the div regardless of width/height of the og image */
 }
 
 .profile-header .username{
@@ -507,6 +544,10 @@ form button:active{
   width: 100%;
 }
 
+.dbtDiary .currentStreak{
+  display: none;
+}
+
 .viewDiaryContainer{
   width: 100%;
   display: flex;
@@ -531,13 +572,20 @@ form button:active{
   box-shadow: inset 1px 1px 2px rgba(0,0,0,0.75);
 }
 
+.courses-and-skills{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
 .courses{
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
   box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.242);
-  width: 90%;
+  width: 100%;
   font-family: "Quicksand", sans-serif;
 }
 
@@ -612,9 +660,8 @@ form button:active{
   align-items: center;
   margin-top: 20px;
   box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.242);
-  width: 90%;
+  width: 100%;
   font-family: "Quicksand", sans-serif;
-  margin-bottom: 10px;
 }
 
 .skills p{
@@ -1118,7 +1165,7 @@ form button:active{
 }
 
 /* Customize the label (the container) */
-.container {
+.skillsPracticedList .container {
   display: block;
   position: relative;
   padding-left: 35px;
@@ -1133,7 +1180,7 @@ form button:active{
 }
 
 /* Hide the browser's default checkbox */
-.container input {
+.skillsPracticedList .container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -1142,9 +1189,9 @@ form button:active{
 }
 
 /* Create a custom checkbox */
-.checkmark {
+.skillsPracticedList .container .checkmark {
   position: absolute;
-  top: 0;
+  top: 1;
   left: 0;
   height: 1rem;
   width: 1rem;
@@ -1162,20 +1209,20 @@ form button:active{
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
+.skillsPracticedList .container .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+.skillsPracticedList .container input:checked ~ .checkmark:after {
   display: block;
 }
 
 /* Style the checkmark/indicator */
-.container .checkmark:after {
-  left: 5px;
+.skillsPracticedList .container .checkmark:after {
+  left: 4px;
   top: 1px;
   width: 4px;
   height: 10px;
@@ -1205,16 +1252,16 @@ form button:active{
 .closeBtn {
   cursor: pointer;
   font-weight: 500;
-  padding: 4px 8px;
-  border-radius: 8px;
+  padding: 2px 4px;
+  border-radius: 50%;
   border: none;
   font-size: 2rem;
   color: black;
-  background: none;
+  background: rgb(224, 223, 223);
   transition: all 0.25s ease;
   position: absolute;
-  left: 0;
-  top: 5px;
+  left: 3px;
+  top: 10px;
   align-self: flex-end;
   margin-top: -7px;
   margin-right: -7px;
@@ -1223,6 +1270,10 @@ form button:active{
 .closeBtn:hover {
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
   transform: translate(-4px, 4px);
+}
+
+button{
+  font-family: "Quicksand", sans-serif;
 }
 
 .deleteBtn {
@@ -1261,6 +1312,252 @@ form button:active{
   box-shadow: none;
   transform: none;
   background: whitesmoke;
+}
+
+/* Orientation Modal ----------------------------------------------------------------------------------------------------- */
+
+.worksheetDescription{
+  padding: 10px;
+  text-align: justify;
+  padding-top: 0px;
+}
+
+.modalContent hr{
+  margin-bottom: 10px;
+  color: rgba(0, 0, 0, 0.579);
+}
+
+.modalContent .describeBox{
+  border: 2px solid black;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.modalContent .describeBox:focus-within{
+  border: 2px solid #9E788F;
+}
+
+.modalContent .describeBox h3{
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.modalContent .describeBox textarea{
+  width: 100%;
+  height: 50px;
+  border: none;
+  font-family: "Quicksand", sans-serif;
+}
+
+.modalContent .describeBox textarea:focus-visible{
+  outline: none;
+}
+
+.modalContent .instructions{
+  padding: 10px;
+  padding-top: 0px;
+}
+
+.modalContent .instructions p{
+  margin-bottom: 5px;
+}
+
+.modalContent .prosBox{
+  border: 2px solid black;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.modalContent .prosBox:focus-within{
+  border: 2px solid #9E788F;
+}
+
+.modalContent .prosBox h3{
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.modalContent .prosBox h4{
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+  text-decoration: underline;
+}
+
+.modalContent .prosBox textarea{
+  width: 100%;
+  height: 50px;
+  border: none;
+  font-family: "Quicksand", sans-serif;
+  font-size: .9rem;
+}
+
+.modalContent .prosBox textarea:focus-visible{
+  outline: none;
+}
+
+.modalContent .consBox{
+  border: 2px solid black;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.modalContent .consBox:focus-within{
+  border: 2px solid #9E788F;
+}
+
+.modalContent .consBox h3{
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.modalContent .consBox h4{
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+  text-decoration: underline;
+}
+
+.modalContent .consBox textarea{
+  width: 100%;
+  height: 50px;
+  border: none;
+  font-family: "Quicksand", sans-serif;
+  font-size: .9rem;
+}
+
+.modalContent .consBox textarea:focus-visible{
+  outline: none;
+}
+
+.modalContent .finalThoughts h3{
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.modalContent .finalThoughts textarea{
+  width: 100%;
+  height: 50px;
+  border: 2px solid black;
+  font-family: "Quicksand", sans-serif;
+  padding: 5px;
+}
+
+.modalContent .finalThoughts textarea:focus-visible{
+  outline: none;
+  border: 2px solid #9E788F;
+}
+
+/* Chain Analysis Modal--------------------------------------------------------------------------------------------------- */
+
+.modalContent .answerBox{
+  border: 2px solid black;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.modalContent .answerBox:focus-within{
+  border: 2px solid #9E788F;
+}
+
+.modalContent .answerBox h3{
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.modalContent .answerBox textarea{
+  width: 100%;
+  height: 150px;
+  border: none;
+  font-family: "Quicksand", sans-serif;
+}
+
+.modalContent .answerBox .links{
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.modalContent .answerBox label{
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.modalContent .answerBox textarea:focus-visible{
+  outline: none;
+}
+
+/* Missing Links Modal---------------------------------------------------------------------------------------------------- */
+
+.modalContent .answerBox .checkboxes{
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.modalContent .answerBox .checkboxes .checkboxContainer{
+  font-size: 1rem;
+  font-weight: 500;
+  margin-right: 40px;
+  position: relative;
+}
+
+/* Hide the browser's default checkbox */
+.modalContent .answerBox .checkboxes .checkboxContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 3px;
+  left: 30px;
+  height: 1rem;
+  width: 1rem;
+  background-color: #eee;
+  border: 1px solid black;
+}
+
+/* On mouse-over, add a grey background color */
+.checkboxContainer:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkboxContainer input:checked ~ .checkmark {
+  background-color: #9E788F;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checboxContainer input:checked ~ .checkmark::after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkboxContainer .checkmark::after {
+  left: 5px;
+  top: 1px;
+  width: 4px;
+  height: 10px;
+  border: 1px solid black;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 /* Courses Pages---------------------------------------------------------------------------------------------------------- */
@@ -1376,6 +1673,11 @@ form button:active{
   cursor: pointer;
 }
 
+.courseLesson.inactive{
+  background-color: #d5d5d5;
+  pointer-events: none;
+}
+
 .courseLesson::after{
   content:"";
   position: absolute;
@@ -1402,6 +1704,11 @@ form button:active{
   cursor: pointer;
 }
 
+.coursePractice.inactive{
+  background-color: #d5d5d5;
+  pointer-events: none;
+}
+
 .coursePractice::after{
   content:"";
   position: absolute;
@@ -1425,6 +1732,274 @@ form button:active{
   color: white;
   margin-bottom: 10px;
   cursor: pointer;
+}
+
+.courseQuiz.inactive{
+  background-color: #d5d5d5;
+  pointer-events: none;
+}
+/* Course Modal: Orientation Lesson 1 --------------------------------------------------------------------------------------- */
+
+.slideNav{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.slideNav .prevButton{
+  background-color: #F4A261;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.75);
+  cursor: pointer;
+  border: none;
+  width: 80px;
+}
+
+.slideNav .prevButton:active{
+  background-color: #d89056;
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.75);
+}
+
+.slideNav .nextButton{
+  background-color: #9E788F;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.75);
+  cursor: pointer;
+  border: none;
+  width: 80px;
+}
+
+.slideNav .nextButton:active{
+  background-color: #8a687d;
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.75);
+}
+
+.slide .slideHeading{
+  margin-bottom: 20px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.slide ul{
+  padding: 10px 20px;
+}
+
+.slide .bold{
+  font-weight: 600;
+}
+
+.progressBar{
+  display: flex;
+  margin-bottom: 20px;
+  border: 2px solid black;
+  width: 100%;
+  height: 20px;
+}
+
+.progressBar .progressFill{
+  background-color: #6da86a;
+  width: 0%;
+  height: 100%;
+  transition: width 0.5s ease;
+  
+}
+
+.slide .checkboxes{
+  display: flex;
+  flex-direction: column;
+}
+
+.slide .checkboxContainer{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.slide .checkboxContainer input{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.slide .checkboxContainer input:focus-visible{
+  outline: none;
+}
+
+.slide .checkboxContainer .checkmark{
+  position: relative;
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-color: #eee;
+}
+
+.slide .checkboxContainer .checkmark::after{
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.slide .checkboxContainer input:checked ~ .checkmark{
+  background-color: #9E788F;
+}
+
+.slide .checkboxContainer input:checked ~ .checkmark::after{
+  display: block;
+  left: 4px;
+  top: -1px;
+  width: 4px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.slide .checkboxContainer .checkmark::after{
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.slide .checkboxContainer p{
+  width: 85%;
+}
+
+.freeAnswerQuestion{
+  margin-top: 10px;
+}
+
+.freeAnswerQuestion p{
+  margin-bottom: 5px;
+}
+
+.freeAnswerQuestion input{
+  width: 100%;
+  padding: 5px;
+  font-family: "Quicksand", sans-serif;
+  border: 1px solid black;
+  border-radius: none;
+}
+
+.freeAnswerQuestion input:focus-visible{
+  outline: none;
+  border: 2px solid #9E788F;
+}
+
+.freeAnswerQuestion textarea{
+  width: 100%;
+  padding: 5px;
+  font-family: "Quicksand", sans-serif;
+  font-size: .9rem;
+  border: 1px solid black;
+  border-radius: none;
+}
+
+.freeAnswerQuestion textarea:focus-visible{
+  outline: none;
+  border: 2px solid #9E788F;
+}
+
+.slide .answers{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.slide .answers .answer{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+}
+
+.slide .answers .answer label{
+  width: 90%;
+}
+
+.slide .submitButton{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  background-color: #F4A261;
+  color: white;
+  padding: 5px;
+  box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.75);
+  cursor: pointer;
+}
+
+.slide .submitButton:active{
+  background-color: #d89056;
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.75);
+}
+
+.slide .feedbackGood{
+  color: #6da86a;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.slide .feedbackBad{
+  color: #ff3e4e;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.slideNav .nextButton.bad{
+  background-color: #d5d5d5;
+  color: black;
+  pointer-events: none;
+}
+
+/* Course Modal: Orientation Lesson 3 ------------------------------------------------------------------------------------------*/
+
+.thinkAboutIt{
+  margin-top: 10px;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.thinkAboutIt h3{
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.slide hr{
+  margin-top: 10px;
+}
+
+/* Course Modal: Analyzing Behavior Lesson 1 ---------------------------------------------------------------------------------- */
+
+ol{
+  padding-left: 20px;
+}
+
+ol li{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.freeAnswerQuestion .biggerTextArea{
+  height: 110px;
 }
 
 /* Skills Practice Pages ------------------------------------------------------------------------------------------------ */
@@ -1464,4 +2039,604 @@ form button:active{
   cursor: pointer;
   font-size: .8rem;
   padding: 5px;
+}
+
+/* Desktop View Media Queries Let's GOOOOOOOO-------------------------------------------------------------------------------- */
+
+
+@media (min-width: 1024px){
+
+  /* root-------------------------------------------------------------------------------------------------------------------- */
+  header{
+    padding: 10px 50px;
+  }
+  
+  .logo{
+    height: 50px;
+    width: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo .logo-text{
+    color: white;
+    font-family: "Dancing Script", cursive;
+    font-size: 2rem;
+    padding-left: 10px;
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+  }
+
+  .logo .logo-text .D{
+    color: #9E788F;
+  }
+
+  .logo .logo-text .B{
+    color: #A9B3CE;
+  }
+
+  .logo .logo-text .T{
+    color: #E9C46A;
+  }
+  
+  .menu{
+    display: none;
+  }
+
+  .desktop-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Quicksand", sans-serif;
+    width: 20%;
+  }
+
+  .desktop-menu a{
+    color: white;
+  }
+
+  .desktop-menu  a .profile-link{
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .desktop-menu  a .profile-link:hover{
+    color: #E9C46A;
+  }
+
+  .desktop-menu  a .profile-link::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #E9C46A;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .desktop-menu  a .profile-link:hover::after{
+    transform: scaleX(1);
+  }
+
+  .desktop-menu .login-link{
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 2px solid #9E788F;
+    transition: background-color 0.3s ease;
+  }
+
+  .desktop-menu .login-link:hover{
+    background-color: #9E788F;
+  }
+
+  .desktop-menu .signup-link{
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 2px solid #A9B3CE;
+    transition: background-color 0.3s ease;
+  }
+
+  .desktop-menu .signup-link:hover{
+    background-color: #A9B3CE;
+  }
+  
+  footer{
+    padding: 10px 50px;
+  }
+  
+  .footer-links{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 5px;
+  }
+  
+  .copyright{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+  }
+  
+  .copyright p{
+    margin-bottom: 2px;
+  }
+
+  /* Home Page-------------------------------------------------------------------------------------------------------------- */
+
+  main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero{
+    position: relative;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .hero img{
+    width: 100%;
+    height: auto;
+    opacity: 0.5;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.771);
+  }
+  
+  .hero p{
+    font-family: "Dancing Script", cursive;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 600;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  
+  .features-cards{
+    height: auto;
+    background-color: lightgray;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 100%;
+    font-family: "Quicksand", sans-serif;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .card{
+    background-color: white;
+    width: 30%;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.75);
+  }
+  
+  .picture{
+    width: 200px;
+  }
+
+  /* Profile page ---------------------------------------------------------------------------------------------------------- */
+
+  .profile-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .profile-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: 110%;
+    box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.229);
+    border-radius: 0 0 50% 50%;
+  }
+  
+  .profile-image{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: lightgray;
+    overflow: hidden;
+    margin-right: 20px;
+  }
+  
+  .profile-image img{
+    height: 100%;
+    width: auto;
+  }
+  
+  .profile-header .username{
+    font-size: 2em;
+    font-weight: 600;
+  }
+  
+  .dbtDiary{
+    align-items: center;
+    margin-top: 20px;
+    width: 60%;
+  }
+  
+  .dbtDiary p{
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  
+  .day-icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 10px 0px;
+    height: 100px;
+  }
+  
+  .day{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #F4A261;
+  }
+  
+  .day.active{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F4A261;
+    color: white;
+  }
+
+  .dbtDiary .currentStreak{
+    width: 50%;
+    border-left: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+    height: 100%;
+  }
+
+  .dbtDiary .currentStreak p{
+    margin-top: 0;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+
+  .dbtDiary .currentStreak .streak{
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .dbtDiary a{
+    width: 100%;
+  }
+  
+  .viewDiaryContainer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .viewDiaryButton{
+    background-color: #9E788F;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.75);
+    cursor: pointer;
+  }
+  
+  .viewDiaryButton:active{
+    background-color: #8a687d;
+    box-shadow: inset 1px 1px 2px rgba(0,0,0,0.75);
+  }
+
+  .courses-and-skills{
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .courses{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.242);
+    width: 48%;
+    font-family: "Quicksand", sans-serif;
+  }
+  
+  .courses a{
+    width: 100%;
+  }
+  
+  .courses p{
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  
+  .course{
+    display: flex;
+    width: 100%;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    cursor: not-allowed;
+  }
+  
+  .course.active{
+    cursor: pointer;
+  }
+  
+  .course-icon{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(128, 128, 128, 0.547);
+  }
+  
+  .active .course-icon.mindfulness{
+    background-color: #9E788F;
+  }
+  
+  .active .course-icon.distress{
+    background-color: #F4A261;
+  }
+  
+  .active .course-icon.emotion{
+    background-color: #A9B3CE;
+  }
+  
+  .active .course-icon.interpersonal{
+    background-color: #E9C46A;
+  }
+  
+  .course-icon img{
+    height: 25px;
+    width: auto;
+  }
+  
+  .course-name{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.281);
+  }
+  
+  .active .course-name{
+    color: black;
+  }
+  
+  .skills{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.242);
+    width: 48%;
+    font-family: "Quicksand", sans-serif;
+    margin-bottom: 0;
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+  
+  .skills p{
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  
+  .skillsContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: .8em;
+    margin: 10px 5px; 
+  }
+  
+  .skillsContainer a{
+    display: flex;
+    justify-content: center;
+    max-width: 150px;
+  }
+  
+  .skillsContainer .skill{
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    min-width: 150px;
+    min-height: 105px;
+  }
+  
+  .skill.mindfulness{
+    background-color: #9E788F;
+  }
+  
+  .skill.distress{
+    background-color: #F4A261;
+  }
+  
+  .skill.emotion{
+    background-color: #A9B3CE;
+  }
+  
+  .skill.interpersonal{
+    background-color: #E9C46A;
+  }
+  
+  .skill-icon{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: white;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .skill-icon img{
+    height: 25px;
+    width: auto;
+  }
+  
+  .skill-text{
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+
+  /* Login Page ------------------------------------------------------------------------------------------------------------ */
+
+  .login-page{
+    font-family: "Quicksand", sans-serif;
+    padding: 50px;
+    height: 100vh;
+    background-color: lightgray;
+  }
+
+  .login-card{
+    background-color: white;
+    display: flex;
+    height: 100%;
+  }
+
+  .login-card .login-image{
+    width: 50%;
+    background-image:url(/pictures/jared-rice-NTyBbu66_SI-unsplash.jpg);
+    background-size: cover;
+  }
+
+  .login-card .login-form{
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .login-page h1{
+    margin-top: 20px;
+    font-size: 1.2em;
+  }
+  
+  .login-page form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .signUpRedirect{
+    margin-top: 15px;
+    font-size: .9em;
+    display: flex;
+  }
+
+  /* Signup Page ------------------------------------------------------------------------------------------------------------- */
+
+  .signup-page{
+    padding: 50px;
+    background-color: lightgray;
+  }
+
+  .signup-image{
+    width: 50%;
+    background-image:url(/pictures/igor-kasalovic-tNDvFkxkBHo-unsplash.jpg);
+    background-size: cover;
+  }
+  
+  .signup-page h1{
+    margin-top: 20px;
+    font-size: 1.2em;
+  }
+  
+  .signup-page form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .formContainer{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  .formContainer input{
+    width: 100%;
+    height: 30px;
+    padding: 5px;
+    font-family: "Quicksand", sans-serif;
+  }
+  
+  .formContainer input:focus-visible{
+    outline: none;
+    border: 3px solid #9E788F;
+  }
+  
+  form button{
+    background-color: #9E788F;
+    color: white;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Quicksand", sans-serif;
+    font-size: 1em;
+    box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.75);
+    cursor: pointer;
+    border: none;
+    margin-top: 10px;
+  }
 }
