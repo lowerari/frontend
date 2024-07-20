@@ -233,6 +233,11 @@ export default function DiaryModal({ setIsOpen }) {
                             <p>Used skills: <span className="infoButton"><CiCircleInfo /></span></p>
                             <div className="skillsUseRadioButtons">
                                 <div className="radio">
+                                    <input type="radio" id="0skillsRating" value="0" />
+                                    <span className="radioButton"></span>
+                                </div>
+                                <label htmlFor="0skillsRating">0</label>
+                                <div className="radio">
                                     <input type="radio" id="1skillsRating" value="1" />
                                     <span className="radioButton"></span>
                                 </div>
