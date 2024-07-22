@@ -95,6 +95,9 @@ function slide2() {
         <>
             <h3 className="slideHeading">People Are Doing the Best They Can</h3>
             <p>That is, given the multiplicity of causes in the universe (genetics, biological events, environmental events, consequences of previous behavior), each person at this one moment in time is what he or she is. Given who we each are and the fact that all behavior is caused, we are doing the best we can at this one moment, given the causes that have affected us.</p>
+            <div className="slideImage">
+                <img src="/pictures/conor-sheridan-6nGrWlxLaWo-unsplash.jpg" alt="Photo by Conor Sheridan on Unsplash" />
+            </div>
         </>
     )
 }
@@ -103,7 +106,10 @@ function slide3() {
     return(
         <>
             <h3 className="slideHeading">People Want to Improve</h3>
-            <p>This is similar to the Dalai Lama's statement that the common characteristic of all people is that they want to be happy.</p>
+            <p>This is similar to the Dalai Lama&apos;s statement that the common characteristic of all people is that they want to be happy.</p>
+            <div className="slideImage">
+                <img src="/pictures/photo-to-canvas-com-NLfp9mXl9ho-unsplash.jpg" alt="Photo by Photo- to-Canvas.com on Unsplash " />
+            </div>
         </>
     )
 }
@@ -115,6 +121,9 @@ function slide4() {
             <p>The fact that people are doing the best they can, and want to do even better, does not mean that their efforts and motivation are sufficient to the task.</p>
             <br />
             <p>That being said, there are times this does not apply. In particular, when progress is steady and at a realistic rate of improvement with no let-up or episodic drop in effort, doing better, trying harder and being more motivated is not needed.</p>
+            <div className="slideImage">
+                <img src="/pictures/tom-crew-yKmBMyxndsI-unsplash.jpg" alt="Photo by Tom Crew on Unsplash" />
+            </div>
         </>
     )
 }
@@ -124,6 +133,9 @@ function slide5() {
         <>
             <h3 className="slideHeading">People May Not Have Caused All of Their Own Problems, but They Have to Solve Them Anyway</h3>
             <p>People have to change their own behavioral responses and alter their environment for their life to change.</p>
+            <div className="slideImage">
+                <img src="/pictures/olav-ahrens-rotne-4Ennrbj1svk-unsplash.jpg" alt="Photo by Olav Ahrens Røtne on Unsplash" />
+            </div>
         </>
     )
 }
@@ -133,6 +145,9 @@ function slide6() {
         <>
             <h3 className="slideHeading">New Behaviors Must Be Learned in All Relevant Contexts</h3>
             <p>Behaviors learned in one context often do not generalize to different contexts, thus it is important to practice new behaviors in all the environments where they will be needed. (This is one of the main reasons it is important for you to practice new skills in your daily environment.)</p>
+            <div className="slideImage">
+                <img src="/pictures/greg-rosenke-DJWvzY4pkGU-unsplash.jpg" alt="Photo by Greg Rosenke on Unsplash" />
+            </div>
         </>
     )
 }
@@ -142,6 +157,9 @@ function slide7() {
         <>
             <h3 className="slideHeading">All Behaviors (Actions, Thoughts, Emotions) Are Caused</h3>
             <p>There is always a cause or set of causes for our actions, thoughts, and emotions, even if we don’t know what these causes are.</p>
+            <div className="slideImage">
+                <img src="/pictures/nadir-syzygy-wc3jFFQxo8k-unsplash.jpg" alt="Photo by Nadir sYzYgY on Unsplash" />
+            </div>
         </>
     )
 }
@@ -152,6 +170,9 @@ function slide8() {
             <h3 className="slideHeading">Figuring Out and Changing the Causes of Behavior Works Better Than Judging
             and Blaming</h3>
             <p>This assumption is very much related to the previous one. When we agree that all behavior is caused, this leads to the understanding that blaming and being judgmental (“This should not be”) are not effective in changing that situation or behavior.</p>
+            <div className="slideImage">
+                <img src="/pictures/dan-burton-WW4sZOuolc0-unsplash.jpg" alt="Photo by Dan Burton on Unsplash" />
+            </div>
         </>
     )
 }
@@ -263,6 +284,9 @@ function slide17() {
         <>
             <h3 className="slideHeading">Conclusion</h3>
             <p>Great work, you've finished another lesson! In this lesson we reviewed the assumptions we take into skills training, the importance of commitment to skills practice, and how to use the DBT Diary. Now you're ready for a brief quiz to review these concepts!</p>
+            <div className="slideImage">
+                <img src="/pictures/levi-guzman-zdSoe8za6Hs-unsplash.jpg" alt="Photo by Levi Guzman on Unsplash" />
+            </div>
         </>
     )
 }

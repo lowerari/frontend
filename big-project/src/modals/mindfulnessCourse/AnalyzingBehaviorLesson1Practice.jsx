@@ -3,6 +3,17 @@ import { RiCloseLine } from "react-icons/ri";
 
 export default function AnalyzingBehaviorLesson1Practice({ setAnalyzingBehaviorLesson1PracticeIsOpen, setAnalyzingBehaviorLesson1QuizIsActive }) {
     const [currentSlide, setCurrentSlide] = useState(0);
+    const [formData, setFormData] = useState([
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+    ]);
 
     const slides = [
         slide1,
@@ -15,6 +26,15 @@ export default function AnalyzingBehaviorLesson1Practice({ setAnalyzingBehaviorL
         slide8,
         slide9
     ]
+
+    const handleFormDataChange = (slideIndex, fieldName, value) => {
+        const newFormData = [...formData];
+        if (!newFormData[slideIndex]){
+            newFormData[slideIndex] = {};
+        }
+        newFormData[slideIndex][fieldName] = value;
+        setFormData(newFormData);
+    }
 
     const goToNextSlide = () => {
         setCurrentSlide(() => {
@@ -53,7 +73,10 @@ export default function AnalyzingBehaviorLesson1Practice({ setAnalyzingBehaviorL
                         </div>
 
                         <div className="slide">
-                            {React.createElement(slides[currentSlide])}
+                            {React.createElement(slides[currentSlide], {
+                                formData: formData[currentSlide] || {},
+                                onFormDataChange: (fieldName, value) => handleFormDataChange(currentSlide, fieldName, value)
+                            })}
                         </div>
 
                         <div className="slideNav">
@@ -72,15 +95,26 @@ export default function AnalyzingBehaviorLesson1Practice({ setAnalyzingBehaviorL
     )
 } 
 
-function slide1() {
+function slide1({ formData, onFormDataChange }) {
+    const handleChange = (event) => {
+        const { id, value, type, checked } = event.target;
+        onFormDataChange(id, type === "checkbox" ? checked : value);
+    }
+
     return (
         <div>
             <h3 className="slideHeading">Step 1: The Problem Behavior</h3>
-            <p>Let's practice chain analysis by doing one on an imaginary scenario: Imagine you got into a fight with your partner, and you did not handle the confrontation very well. Complete each step with your own answers. Don't focus on trying to do the analysis perfectly! The point of the exercise is to get practice doing chain analysis, so that you feel more comfortable doing it for yourself later. The more you practice, the easier it will become.</p>
+            <p>Let&apos;s practice chain analysis by doing one on an imaginary scenario: Imagine you got into a fight with your partner, and you did not handle the confrontation very well. Complete each step with your own answers. Don&apos;t focus on trying to do the analysis perfectly! The point of the exercise is to get practice doing chain analysis, so that you feel more comfortable doing it for yourself later. The more you practice, the easier it will become.</p>
             <hr />
             <div className="freeAnswerQuestion">
                 <p><span className="bold">What exactly was the problem behavior?:</span></p>
-                <textarea name="problemBehaviorPractice" id="problemBehaviorPractice" placeholder="Example: I yelled at my partner and stormed out of the room, slamming the door."></textarea>
+                <textarea 
+                    name="problemBehaviorPractice" 
+                    id="problemBehaviorPractice" 
+                    placeholder="Example: I yelled at my partner and stormed out of the room, slamming the door."
+                    onChange={handleChange}
+                    value={formData.problemBehaviorPractice}
+                ></textarea>
             </div>
             <br />
             <p>Tips:</p>
@@ -94,19 +128,30 @@ function slide1() {
     )
 }
 
-function slide2() {
+function slide2({ formData, onFormDataChange }) {
+    const handleChange = (event) => {
+        const { id, value, type, checked } = event.target;
+        onFormDataChange(id, type === "checkbox" ? checked : value);
+    }
+
     return (
         <div>
             <h3 className="slideHeading">Step 2: The Prompting Event</h3>
             
             <div className="freeAnswerQuestion">
                 <p><span className="bold">What event in the environment started the chain of events?:</span></p>
-                <textarea name="propmtingEventPractice" id="propmtingEventPractice" placeholder="Example: I came home from work and my boyfriend was on the couch asleep."></textarea>
+                <textarea 
+                    name="propmtingEventPractice" 
+                    id="propmtingEventPractice" 
+                    placeholder="Example: I came home from work and my boyfriend was on the couch asleep."
+                    value={formData.propmtingEventPractice}
+                    onChange={handleChange}
+                ></textarea>
             </div>
             <br />
             <p>Tips:</p>
             <ul>
-                <li>Always begin with some event in your environment, even if it doesn't seem like it "caused" the problem behavior.</li>
+                <li>Always begin with some event in your environment, even if it doesn&apos;t seem like it &quot;caused&quot; the problem behavior.</li>
                 <li>Ask yourself: what exact event precipitated the start of the chain reaction?</li>
                 <li>When did the sequence of events that led to the problem behavior begin?</li>
                 <li>What was going on right before the thought of or impulse for the problem behavior occurred?</li>
@@ -117,14 +162,26 @@ function slide2() {
     )
 }
 
-function slide3() {
+function slide3({ formData, onFormDataChange }) {
+    const handleChange = (event) => {
+        const { id, value, type, checked } = event.target;
+        onFormDataChange(id, type === "checkbox" ? checked : value);
+    }
+
     return (
         <div>
             <h3 className="slideHeading">Step 3: What Made Me Vulnerable</h3>
             
             <div className="freeAnswerQuestion">
                 <p><span className="bold">What were the vulnerability factors for that day?:</span></p>
-                <textarea className="biggerTextArea" name="madeVulnerablePractice" id="madeVulnerablePractice" placeholder="Example: The night before he had come home really late and was tired. He and I had not gone out together after work in a really long time and I got him to agree to go out the next night. I was really looking forward to going out when I got home."></textarea>
+                <textarea 
+                    className="biggerTextArea" 
+                    name="madeVulnerablePractice" 
+                    id="madeVulnerablePractice" 
+                    placeholder="Example: The night before he had come home really late and was tired. He and I had not gone out together after work in a really long time and I got him to agree to go out the next night. I was really looking forward to going out when I got home."
+                    value={formData.madeVulnerablePractice}
+                    onChange={handleChange}
+                ></textarea>
             </div>
             <br />
             <p>Areas to examine:</p>
@@ -139,14 +196,26 @@ function slide3() {
     )
 }
 
-function slide4() {
+function slide4({ formData, onFormDataChange }) {
+    const handleChange = (event) => {
+        const { id, value, type, checked } = event.target;
+        onFormDataChange(id, type === "checkbox" ? checked : value);
+    }
+
     return(
         <div>
             <h3 className="slideHeading">Step 4: The Specific Behaviors and Events that Were Links in the Chain</h3>
             
             <div className="freeAnswerQuestion">
                 <p><span className="bold">What was the chain of events, link by link, that led from the prompting event to the problem behavior?:</span></p>
-                <textarea className="biggerTextArea" name="specificBehaviorsPractice" id="specificBehaviorsPractice" placeholder="Example: 1st: When I saw him asleep I thought, “He is sleeping again. We’re not going out.” 2nd: I thought, “He does not love me.” 3rd: I got furious right away. 4th: I wanted to hurt him like he hurt me."></textarea>
+                <textarea 
+                    className="biggerTextArea" 
+                    name="specificBehaviorsPractice" 
+                    id="specificBehaviorsPractice" 
+                    placeholder="Example: 1st: When I saw him asleep I thought, “He is sleeping again. We’re not going out.” 2nd: I thought, “He does not love me.” 3rd: I got furious right away. 4th: I wanted to hurt him like he hurt me."
+                    value={formData.specificBehaviorsPractice}
+                    onChange={handleChange}
+                ></textarea>
             </div>
             <br />
             <p>Links in the chain could be:</p>
@@ -162,14 +231,26 @@ function slide4() {
     )
 }
 
-function slide5() {
+function slide5({ formData, onFormDataChange }) {
+    const handleChange = (event) => {
+        const { id, value, type, checked } = event.target;
+        onFormDataChange(id, type === "checkbox" ? checked : value);
+    }
+
     return(
         <div>
             <h3 className="slideHeading">Step 5: The Consequences of the Behavior— The Harm My Behavior Caused</h3>
             
             <div className="freeAnswerQuestion">
                 <p><span className="bold">What were the consequences of the behavior in the environment?:</span></p>
-                <textarea className="biggerTextArea" name="consequencesPractice" id="consequencesPractice" placeholder="Example: In the environment: He was very hurt that I assumed he did not love me. For myself: I felt guilty. I realized that I had ruined the evening for both of us."></textarea>
+                <textarea 
+                    className="biggerTextArea" 
+                    name="consequencesPractice" 
+                    id="consequencesPractice" 
+                    placeholder="Example: In the environment: He was very hurt that I assumed he did not love me. For myself: I felt guilty. I realized that I had ruined the evening for both of us."
+                    value={formData.consequencesPractice}
+                    onChange={handleChange}
+                ></textarea>
             </div>
             <br />
             <p>Ask yourself:</p>
@@ -183,14 +264,26 @@ function slide5() {
     )
 }
 
-function slide6(){
+function slide6({ formData, onFormDataChange }) {
+    const handleChange = (event) => {
+        const { id, value, type, checked } = event.target;
+        onFormDataChange(id, type === "checkbox" ? checked : value);
+    }
+
     return(
         <div>
             <h3 className="slideHeading">Step 6: Changing the Problem Behavior</h3>
             <div className="freeAnswerQuestion">
                 <p><span className="bold">Identify skillful behaviors to replace problem links in the chain, and so to decrease the
                 probability of this behavior’s happening again:</span></p>
-                <textarea className="biggerTextArea" name="changingBehaviorPractice" id="changingBehaviorPractice" placeholder="Example: I can check the facts next time, since when I finally did in this situation, I found out he had taken a nap so that we would be able to have a really good time together."></textarea>
+                <textarea 
+                    className="biggerTextArea" 
+                    name="changingBehaviorPractice" 
+                    id="changingBehaviorPractice" 
+                    placeholder="Example: I can check the facts next time, since when I finally did in this situation, I found out he had taken a nap so that we would be able to have a really good time together."
+                    value={formData.changingBehaviorPractice}
+                    onChange={handleChange}
+                ></textarea>
             </div>
             <br />
             <p>Tips:</p>
@@ -202,27 +295,51 @@ function slide6(){
     )
 }
 
-function slide7(){
+function slide7({ formData, onFormDataChange }) {
+    const handleChange = (event) => {
+        const { id, value, type, checked } = event.target;
+        onFormDataChange(id, type === "checkbox" ? checked : value);
+    }
+
     return(
         <div>
             <h3 className="slideHeading">Step 7: Prevention Plans</h3>
             <div className="freeAnswerQuestion">
                 <p><span className="bold">Develop prevention plans to reduce vulnerability to prompting events and to starting down
                 the chain:</span></p>
-                <textarea className="biggerTextArea" name="preventionPlanPractice" id="preventionPlanPractice" placeholder="Example: I can check the facts in my relationship with my partner when I start thinking he does not love me."></textarea>
+                <textarea 
+                    className="biggerTextArea" 
+                    name="preventionPlanPractice" 
+                    id="preventionPlanPractice" 
+                    placeholder="Example: I can check the facts in my relationship with my partner when I start thinking he does not love me."
+                    value={formData.preventionPlanPractice}
+                    onChange={handleChange}
+                ></textarea>
             </div>
         </div>
     )
 }
 
-function slide8(){
+function slide8({ formData, onFormDataChange }) {
+    const handleChange = (event) => {
+        const { id, value, type, checked } = event.target;
+        onFormDataChange(id, type === "checkbox" ? checked : value);
+    }
+
     return(
         <div>
             <h3 className="slideHeading">Step 8: Plans to Repair, Correct, and Overcorrect the Harm</h3>
             <div className="freeAnswerQuestion">
                 <p><span className="bold">Repair the negative consequences of the problem behavior for the environment and for
                 oneself:</span></p>
-                <textarea className="biggerTextArea" name="repairingConsequencesPractice" id="repairingConsequencesPractice" placeholder="Example: I will make every effort to treat my partner as if he constantly loves me. I will also apologize to him and to make up our evening out that I ruined, I will plan an evening together for both of us that he will really like."></textarea>
+                <textarea 
+                    className="biggerTextArea" 
+                    name="repairingConsequencesPractice" 
+                    id="repairingConsequencesPractice" 
+                    placeholder="Example: I will make every effort to treat my partner as if he constantly loves me. I will also apologize to him and to make up our evening out that I ruined, I will plan an evening together for both of us that he will really like."
+                    value={formData.repairingConsequencesPractice}
+                    onChange={handleChange}
+                ></textarea>
             </div>
             <br />
             <p>Tips:</p>
@@ -238,7 +355,7 @@ function slide9(){
     return(
         <div>
             <h3 className="slideHeading">Great Work!</h3>
-            <p>Great job doing your first chain analysis! If you found it a bit difficult, don't worry; as you go through these lessons you'll find it easier and easier to analyze your behavior and come up with solutions to prevent and repair harm. Now, let's do a quick quiz!</p>
+            <p>Great job doing your first chain analysis! If you found it a bit difficult, don&apos;t worry; as you go through these lessons you&apos;ll find it easier and easier to analyze your behavior and come up with solutions to prevent and repair harm. Now, let&apos;s do a quick quiz!</p>
         </div>
     )
 }

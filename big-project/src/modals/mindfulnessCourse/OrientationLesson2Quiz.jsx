@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RiCloseLine } from "react-icons/ri";
+import confetti from "canvas-confetti";
 
 export default function OrientationLesson2Quiz({ setOrientationLesson2QuizIsOpen, setOrientationLesson3IsActive }) {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -271,6 +272,14 @@ function Slide4({setCorrectAnswer}){
 }
 
 function Slide5(){
+    useEffect(() => {
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+    }, []);
+
     return(
         <>
             <h3 className="slideHeading">Congratulations!</h3>

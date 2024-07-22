@@ -85,7 +85,10 @@ function slide1() {
     return(
         <>
             <h3 className="slideHeading">Welcome to Skills Training!</h3>
-            <p>Congratulations! You've chosen to embark on a very important journey for your mental health and well-being. Throughout this course, you will learn skills that will help you change unwanted behaviors, emotions, thinking, and events that cause misery and distress.</p>
+            <p>Congratulations! You&apos;ve chosen to embark on a very important journey for your mental health and well-being. Throughout this course, you will learn skills that will help you change unwanted behaviors, emotions, thinking, and events that cause misery and distress.</p>
+            <div className="slideImage">
+                <img src="/pictures/matt-howard-A4iL43vunlY-unsplash.jpg" alt="Photo by Matt Howard on Unsplash" />
+            </div>
         </>
     )
 }
@@ -111,6 +114,9 @@ function slide3() {
         <>
             <h3 className="slideHeading">Skills to Increase</h3>
             <p>But skills training is not just about decreasing certain behaviors! There are also many behaviors you are going to learn/increase. They fall under four big umbrellas: mindfullness, interpersonal effectiveness, emotion regulation, and distress tolerance. Let's break down what each of those means.</p>
+            <div className="slideImage">
+                <img src="/pictures/dbtskills.png" alt="DBT skills image" />
+            </div>
         </>
     )
 }
@@ -178,6 +184,9 @@ function slide8() {
         <>
             <h3 className="slideHeading">Analyzing Behavior</h3>
             <p>Finally, before we get started with anything else, we will start by learning important skills for how to figure out the causes of problem behavior and plan for problem solving with <span className="bold">chain analysis and missing links analysis.</span></p>
+            <div className="slideImage">
+                <img src="/pictures/mike-alonzo-Xe7za0JtTeM-unsplash.jpg" alt="Photo by Mike Alonzo on Unsplash" />
+            </div>
         </>
     )
 }
@@ -323,6 +332,9 @@ function slide17() {
         <>
             <h3 className="slideHeading">Conclusion</h3>
             <p>Now that you know your options for solving problems, you can use this information to motivate yourself to practice skills. Remember, the goal of skills training is to help you change unwanted behaviors, emotions, thinking, and events that cause misery and distress. You can do this by learning and practicing the skills taught in this course.</p>
+            <div className="slideImage">
+                <img src="/pictures/vlad-bagacian-d1eaoAabeXs-unsplash.jpg" alt="Photo by Vlad Bagacian on Unsplash" />
+            </div>
         </>
     )
 }

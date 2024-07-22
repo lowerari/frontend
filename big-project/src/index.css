@@ -1788,6 +1788,15 @@ button{
   text-align: center;
 }
 
+.slideImage{
+  width: 100%;
+  margin-top: 20px;
+}
+
+.slideImage img{
+  width: 100%;
+}
+
 .slide ul{
   padding: 10px 20px;
 }
@@ -1821,6 +1830,7 @@ button{
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .slide .checkboxContainer input{
