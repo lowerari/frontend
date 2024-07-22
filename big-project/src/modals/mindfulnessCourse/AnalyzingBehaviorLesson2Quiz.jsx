@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RiCloseLine } from "react-icons/ri";
+import confetti from "canvas-confetti";
 
 export default function AnalyzingBehaviorLesson2Quiz({ setAnalyzingBehaviorLesson2QuizIsOpen }) {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -242,7 +243,7 @@ function Slide4({setCorrectAnswer}){
     return(
         <>
             <h3 className="slideHeading">Question 1</h3>
-            <p>What are the two types of effective behaviors analyzed in missing-links analysis?</p>
+            <p>Which of these questions appears as part of missing-links analysis?</p>
             
             <div className="checkboxes">
                 {Object.keys(selectedAnswers).map((answer, index) => (
@@ -267,6 +268,14 @@ function Slide4({setCorrectAnswer}){
 }
 
 function Slide5(){
+    useEffect(() => {
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+    }, []);
+
     return(
         <div>
             <h3 className="slideHeading">Congratulations!</h3>
