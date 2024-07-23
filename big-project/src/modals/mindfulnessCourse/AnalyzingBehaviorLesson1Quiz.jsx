@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { RiCloseLine } from "react-icons/ri";
 import confetti from "canvas-confetti";
+import axios from "axios";
 
 export default function AnalyzingBehaviorLesson1Quiz({ setAnalyzingBehaviorLesson1QuizIsOpen, setAnalyzingBehaviorLesson2IsActive }) {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -15,6 +16,22 @@ export default function AnalyzingBehaviorLesson1Quiz({ setAnalyzingBehaviorLesso
         Slide5,
         Slide6
     ]
+
+    const handleUpdateCourseProgress = async () => {
+        const token = localStorage.getItem('token');
+        try {
+            const response = await axios.patch('http://127.0.0.1:8000/update_course', {
+                analyzing_behavior_lesson_2 : true
+            }, {
+                headers: {
+                    'Authorization': `Token ${token}`
+                }
+            })
+            console.log(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     return(
         <div className="centered">
@@ -42,6 +59,7 @@ export default function AnalyzingBehaviorLesson1Quiz({ setAnalyzingBehaviorLesso
                             setAnalyzingBehaviorLesson1QuizIsOpen(false); 
                             setCorrectAnswer(false);
                             setAnalyzingBehaviorLesson2IsActive(true);
+                            handleUpdateCourseProgress();
                         }}>Finish!</button>}
                         {currentSlide !== slides.length - 1 && <button className={correctAnswer ? "nextButton" : "nextButton bad"} onClick={() => {
                             setCurrentSlide(currentSlide + 1);
@@ -149,7 +167,7 @@ function Slide2({setCorrectAnswer}){
                         <input type="radio" id="chainAnalysisImportantAnswer4" name="chainAnalysisImportantAnswer" value="It's not important." onChange={(e) => setSelectedAnswer(e.target.value)} />
                         <span className="radioButton"></span>
                     </div>
-                    <label htmlFor="chainAnalysisImportantAnswer4">It's not important.</label>
+                    <label htmlFor="chainAnalysisImportantAnswer4">It&apos;s not important.</label>
                 </div>
             </div>
             {message && <div className={message === "Great Work!" ? "feedbackGood" : "feedbackBad"}>{message}</div>}
@@ -310,7 +328,7 @@ function Slide5({setCorrectAnswer}){
                         <input type="radio" id="repairingConsequencesAnswer3" name="repairingConsequencesAnswer" value="It's not important; the only thing that matters is saying sorry." onChange={(e) => setSelectedAnswer(e.target.value)} />
                         <span className="radioButton"></span>
                     </div>
-                    <label htmlFor="repairingConsequencesAnswer3">It's not important; the only thing that matters is saying sorry.</label>
+                    <label htmlFor="repairingConsequencesAnswer3">It&apos;s not important; the only thing that matters is saying sorry.</label>
                 </div>
                 <div className="answer">
                     <div className="radio">
@@ -340,7 +358,7 @@ function Slide6(){
     return(
         <div>
             <h3 className="slideHeading">Congratulations!</h3>
-            <p>You've completed the quiz! Now you're ready to practice chain analysis for yourself. Head over to the skill practice area to find the chain analysis worksheet!</p>
+            <p>You&apos;ve completed the quiz! Now you&apos;re ready to practice chain analysis for yourself. Head over to the skill practice area to find the chain analysis worksheet!</p>
         </div>
     )
 }

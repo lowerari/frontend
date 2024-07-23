@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { RiCloseLine } from "react-icons/ri";
+import axios from "axios";
 
 export default function AnalyzingBehaviorLesson2Practice({ setAnalyzingBehaviorLesson2PracticeIsOpen, setAnalyzingBehaviorLesson2QuizIsActive }) {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -28,6 +29,22 @@ export default function AnalyzingBehaviorLesson2Practice({ setAnalyzingBehaviorL
         }
         newFormData[slideIndex][fieldName] = value;
         setFormData(newFormData);
+    }
+
+    const handleUpdateCourseProgress = async () => {
+        const token = localStorage.getItem('token');
+        try {
+            const response = await axios.patch('http://127.0.0.1:8000/update_course', {
+                analyzing_behavior_lesson_2_quiz : true
+            }, {
+                headers: {
+                    'Authorization': `Token ${token}`
+                }
+            })
+            console.log(response.data);
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     const goToNextSlide = () => {
@@ -79,6 +96,7 @@ export default function AnalyzingBehaviorLesson2Practice({ setAnalyzingBehaviorL
                             {currentSlide === slides.length - 1 && <button className="nextButton" onClick={() => {
                                 setAnalyzingBehaviorLesson2PracticeIsOpen(false);
                                 setAnalyzingBehaviorLesson2QuizIsActive(true);
+                                handleUpdateCourseProgress();
                                 }}>Finish!</button>}
                             {currentSlide !== slides.length - 1 && <button className="nextButton" onClick={goToNextSlide}>Next</button>}
                         </div>
