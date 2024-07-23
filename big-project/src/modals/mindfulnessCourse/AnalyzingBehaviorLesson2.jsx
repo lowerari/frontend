@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { RiCloseLine } from "react-icons/ri";
-import { FaBookOpenReader, FaTrophy } from "react-icons/fa6";
-import { FaPencilAlt } from "react-icons/fa";
 import { FaLightbulb } from "react-icons/fa";
+import axios from "axios";
 
 export default function AnalyzingBehaviorLesson2({ setAnalyzingBehaviorLesson2IsOpen, setAnalyzingBehaviorLesson2PracticeIsActive }) {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -16,6 +15,22 @@ export default function AnalyzingBehaviorLesson2({ setAnalyzingBehaviorLesson2Is
         slide6,
         slide7
     ];
+
+    const handleUpdateCourseProgress = async () => {
+        const token = localStorage.getItem('token');
+        try {
+            const response = await axios.patch('http://127.0.0.1:8000/update_course', {
+                analyzing_behavior_lesson_2_practice : true
+            }, {
+                headers: {
+                    'Authorization': `Token ${token}`
+                }
+            })
+            console.log(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     const goToNextSlide = () => {
         setCurrentSlide(() => {
@@ -61,6 +76,7 @@ export default function AnalyzingBehaviorLesson2({ setAnalyzingBehaviorLesson2Is
                             {currentSlide === slides.length - 1 && <button className="nextButton" onClick={() => {
                                 setAnalyzingBehaviorLesson2IsOpen(false);
                                 setAnalyzingBehaviorLesson2PracticeIsActive(true);
+                                handleUpdateCourseProgress();
                                 }}>Finish!</button>}
                             {currentSlide !== slides.length - 1 && <button className="nextButton" onClick={goToNextSlide}>Next</button>}
                         </div>

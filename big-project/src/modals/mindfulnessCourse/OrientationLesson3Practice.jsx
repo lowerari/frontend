@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { RiCloseLine } from "react-icons/ri";
+import axios from "axios";
 
 export default function OrientationLesson3Practice({ setOrientationLesson3PracticeIsOpen, setOrientationLesson3QuizIsActive }) {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -28,6 +29,22 @@ export default function OrientationLesson3Practice({ setOrientationLesson3Practi
         }
         newFormData[slideIndex][fieldName] = value;
         setFormData(newFormData);
+    }
+
+    const handleUpdateCourseProgress = async () => {
+        const token = localStorage.getItem('token');
+        try {
+            const response = await axios.patch('http://127.0.0.1:8000/update_course', {
+                orientation_lesson_3_quiz : true
+            }, {
+                headers: {
+                    'Authorization': `Token ${token}`
+                }
+            })
+            console.log(response.data);
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     const goToNextSlide = () => {
@@ -79,6 +96,7 @@ export default function OrientationLesson3Practice({ setOrientationLesson3Practi
                             {currentSlide === slides.length - 1 && <button className="nextButton" onClick={() => {
                                 setOrientationLesson3PracticeIsOpen(false);
                                 setOrientationLesson3QuizIsActive(true);
+                                handleUpdateCourseProgress();
                                 }}>Finish!</button>}
                             {currentSlide !== slides.length - 1 && <button className="nextButton" onClick={goToNextSlide}>Next</button>}
                         </div>

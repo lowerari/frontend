@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { RiCloseLine } from "react-icons/ri";
 import confetti from 'canvas-confetti';
+import axios from "axios";
 
 export default function OrientationLesson1Quiz({ setOrientationLesson1QuizIsOpen, setOrientationLesson2IsActive }) {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -17,6 +18,22 @@ export default function OrientationLesson1Quiz({ setOrientationLesson1QuizIsOpen
         Slide7,
         Slide8
     ]
+
+    const handleUpdateCourseProgress = async () => {
+        const token = localStorage.getItem('token');
+        try {
+            const response = await axios.patch('http://127.0.0.1:8000/update_course', {
+                orientation_lesson_2 : true
+            }, {
+                headers: {
+                    'Authorization': `Token ${token}`
+                }
+            })
+            console.log(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     return(
         <div className="centered">
@@ -44,6 +61,7 @@ export default function OrientationLesson1Quiz({ setOrientationLesson1QuizIsOpen
                             setOrientationLesson1QuizIsOpen(false); 
                             setCorrectAnswer(false);
                             setOrientationLesson2IsActive(true);
+                            handleUpdateCourseProgress();
                         }}>Finish!</button>}
                         {currentSlide !== slides.length - 1 && <button className={correctAnswer ? "nextButton" : "nextButton bad"} onClick={() => {
                             setCurrentSlide(currentSlide + 1);
@@ -374,7 +392,7 @@ function Slide6({setCorrectAnswer}){
                         <input type="radio" id="tolerateProblemAnswer4" name="tolerateProblemAnswer" value="Focus only on the problem and how miserable it's making you feel" onChange={(e) => setSelectedAnswer(e.target.value)} />
                         <span className="radioButton"></span>
                     </div>
-                    <label htmlFor="tolerateProblemAnswer4">Focus only on the problem and how miserable it's making you feel</label>
+                    <label htmlFor="tolerateProblemAnswer4">Focus only on the problem and how miserable it&apos;s making you feel</label>
                 </div>
                 <div className="answer">
                     <div className="radio">
@@ -460,7 +478,7 @@ function Slide8(){
     return(
         <>
             <h3 className="slideHeading">Congratulations!</h3>
-            <p>You passed the first module for orientation! You may now access the skills for "Orientation" in the skills practice page!</p>
+            <p>You passed the first module for orientation! You may now access the skills for &quot;Orientation&quot; in the skills practice page!</p>
         </>
     )
 }

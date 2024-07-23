@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { RiCloseLine } from "react-icons/ri";
 import confetti from "canvas-confetti";
+import axios from "axios";
 
 export default function OrientationLesson3Quiz({ setOrientationLesson3QuizIsOpen, setAnalyzingBehaviorLesson1IsActive }) {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -15,6 +16,22 @@ export default function OrientationLesson3Quiz({ setOrientationLesson3QuizIsOpen
         Slide5,
         Slide6,
     ]
+
+    const handleUpdateCourseProgress = async () => {
+        const token = localStorage.getItem('token');
+        try {
+            const response = await axios.patch('http://127.0.0.1:8000/update_course', {
+                analyzing_behavior_lesson_1 : true
+            }, {
+                headers: {
+                    'Authorization': `Token ${token}`
+                }
+            })
+            console.log(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     return(
         <div className="centered">
@@ -41,11 +58,12 @@ export default function OrientationLesson3Quiz({ setOrientationLesson3QuizIsOpen
                         {currentSlide === slides.length - 1 && <button className="nextButton" onClick={() => {
                             setOrientationLesson3QuizIsOpen(false); 
                             setCorrectAnswer(false);
+                            setAnalyzingBehaviorLesson1IsActive(true);
+                            handleUpdateCourseProgress();
                         }}>Finish!</button>}
                         {currentSlide !== slides.length - 1 && <button className={correctAnswer ? "nextButton" : "nextButton bad"} onClick={() => {
                             setCurrentSlide(currentSlide + 1);
                             setCorrectAnswer(false);
-                            setAnalyzingBehaviorLesson1IsActive(true);
                         }}>Next</button>}
                     </div>
                 </div>

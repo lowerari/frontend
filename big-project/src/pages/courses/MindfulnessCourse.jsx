@@ -1,6 +1,6 @@
 import { FaBookOpenReader, FaTrophy } from "react-icons/fa6";
 import { FaPencilAlt } from "react-icons/fa";
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import OrientationLesson1 from "../../modals/mindfulnessCourse/OrientationLesson1";
 import OrientationLesson1Practice from "../../modals/mindfulnessCourse/OrientationLesson1Practice";
 import OrientationLesson1Quiz from "../../modals/mindfulnessCourse/OrientationLesson1Quiz";
@@ -15,8 +15,11 @@ import AnalyzingBehaviorLesson1Quiz from "../../modals/mindfulnessCourse/Analyzi
 import AnalyzingBehaviorLesson2 from "../../modals/mindfulnessCourse/AnalyzingBehaviorLesson2";
 import AnalyzingBehaviorLesson2Practice from "../../modals/mindfulnessCourse/AnalyzingBehaviorLesson2Practice";
 import AnalyzingBehaviorLesson2Quiz from "../../modals/mindfulnessCourse/AnalyzingBehaviorLesson2Quiz";
+import axios from "axios";
 
 export default function MindfulnessCourse() {
+    const token = localStorage.getItem('token');
+
     const [orientationLesson1IsOpen, setOrientationLesson1IsOpen] = useState(false);
     const [orientationLesson1PracticeIsOpen, setOrientationLesson1PracticeIsOpen] = useState(false);
     const [orientationLesson1QuizIsOpen, setOrientationLesson1QuizIsOpen] = useState(false);
@@ -78,6 +81,36 @@ export default function MindfulnessCourse() {
     const [optionalSkillsLesson3IsActive, setOptionalSkillsLesson3IsActive] = useState(false);
     const [optionalSkillsLesson3PracticeIsActive, setOptionalSkillsLesson3PracticeIsActive] = useState(false);
     const [optionalSkillsLesson3QuizIsActive, setOptionalSkillsLesson3QuizIsActive] = useState(false);
+
+    useEffect(() => {
+        const fetchCourseProgress = async () => {
+            try {
+                const response = await axios.get('http://127.0.0.1:8000/course', {
+                    headers: {
+                        'Authorization' : `Token ${token}`
+                    }
+                })
+
+                console.log(response.data);
+                setOrientationLesson1PracticeIsActive(response.data[0].orientation_lesson_1_practice);
+                setOrientationLesson1QuizIsActive(response.data[0].orientation_lesson_1_quiz);
+                setOrientationLesson2IsActive(response.data[0].orientation_lesson_2);
+                setOrientationLesson2QuizIsActive(response.data[0].orientation_lesson_2_quiz);
+                setOrientationLesson3IsActive(response.data[0].orientation_lesson_3);
+                setOrientationLesson3PracticeIsActive(response.data[0].orientation_lesson_3_practice);
+                setOrientationLesson3QuizIsActive(response.data[0].orientation_lesson_3_quiz);
+                setAnalyzingBehaviorLesson1IsActive(response.data[0].analyzing_behavior_lesson_1);
+                setAnalyzingBehaviorLesson1PracticeIsActive(response.data[0].analyzing_behavior_lesson_1_practice);
+                setAnalyzingBehaviorLesson1QuizIsActive(response.data[0].analyzing_behavior_lesson_1_quiz);
+                setAnalyzingBehaviorLesson2IsActive(response.data[0].analyzing_behavior_lesson_2);
+                setAnalyzingBehaviorLesson2PracticeIsActive(response.data[0].analyzing_behavior_lesson_2_practice);
+                setAnalyzingBehaviorLesson2QuizIsActive(response.data[0].analyzing_behavior_lesson_2_quiz);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        fetchCourseProgress();
+    }, [token, orientationLesson1PracticeIsActive]);
 
     return(
         <div className="coursePage">

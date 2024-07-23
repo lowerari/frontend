@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { RiCloseLine } from "react-icons/ri";
 import { FaBookOpenReader, FaTrophy } from "react-icons/fa6";
 import { FaPencilAlt } from "react-icons/fa";
+import axios from "axios";
 
 export default function OrientationLesson1({ setOrientationLesson1IsOpen, setOrientationLesson1PracticeIsActive }) {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -25,6 +26,22 @@ export default function OrientationLesson1({ setOrientationLesson1IsOpen, setOri
         slide16,
         slide17,
     ];
+
+    const handleBeginCourse = async () => {
+        const token = localStorage.getItem('token');
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/create_course', {
+                orientation_lesson_1_practice : true
+            }, {
+                headers: {
+                    'Authorization': `Token ${token}`
+                }
+            })
+            console.log(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     const goToNextSlide = () => {
         setCurrentSlide(() => {
@@ -71,6 +88,7 @@ export default function OrientationLesson1({ setOrientationLesson1IsOpen, setOri
                             {currentSlide === slides.length - 1 && <button className="nextButton" onClick={() => {
                                 setOrientationLesson1IsOpen(false);
                                 setOrientationLesson1PracticeIsActive(true);
+                                handleBeginCourse();
                                 }}>Finish!</button>}
                             {currentSlide !== slides.length - 1 && <button className="nextButton" onClick={goToNextSlide}>Next</button>}
                         </div>

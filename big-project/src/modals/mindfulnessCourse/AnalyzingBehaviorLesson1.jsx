@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { RiCloseLine } from "react-icons/ri";
-import { FaBookOpenReader, FaTrophy } from "react-icons/fa6";
-import { FaPencilAlt } from "react-icons/fa";
+import axios from "axios";
 
 export default function AnalyzingBehaviorLesson1({ setAnalyzingBehaviorLesson1IsOpen, setAnalyzingBehaviorLesson1PracticeIsActive }) {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -13,6 +12,22 @@ export default function AnalyzingBehaviorLesson1({ setAnalyzingBehaviorLesson1Is
         slide4,
         slide5,
     ];
+
+    const handleUpdateCourseProgress = async () => {
+        const token = localStorage.getItem('token');
+        try {
+            const response = await axios.patch('http://127.0.0.1:8000/update_course', {
+                analyzing_behavior_lesson_1_practice : true
+            }, {
+                headers: {
+                    'Authorization': `Token ${token}`
+                }
+            })
+            console.log(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     const goToNextSlide = () => {
         setCurrentSlide(() => {
@@ -59,6 +74,7 @@ export default function AnalyzingBehaviorLesson1({ setAnalyzingBehaviorLesson1Is
                             {currentSlide === slides.length - 1 && <button className="nextButton" onClick={() => {
                                 setAnalyzingBehaviorLesson1IsOpen(false);
                                 setAnalyzingBehaviorLesson1PracticeIsActive(true);
+                                handleUpdateCourseProgress();
                                 }}>Finish!</button>}
                             {currentSlide !== slides.length - 1 && <button className="nextButton" onClick={goToNextSlide}>Next</button>}
                         </div>
@@ -107,7 +123,7 @@ function slide4() {
             <p>There are 8 steps total. Steps 1-5 are about understanding the problem. Identify:</p>
             <ol>
                 <li>What exactly was the problem behavior?</li>
-                <li>What event in the environment started the chain of events (called the "prompting event")?</li>
+                <li>What event in the environment started the chain of events (called the &quot;prompting event&quot;)?</li>
                 <li>What were the vulnerability factors for that particular day?</li>
                 <li>What was the chain of events, link by link, that led from the prompting event to the problem behavior?</li>
                 <li>What were the consequences of the behavior in the environment?</li>
@@ -126,8 +142,8 @@ function slide4() {
 function slide5() {
     return(
         <>
-            <h3 className="slideHeading">Let's Practice!</h3>
-            <p>Now that you know the steps, chain analysis is best learned through practice. Proceed to the practice section and let's try doing a guided chain analysis example!</p>
+            <h3 className="slideHeading">Let&apos;s Practice!</h3>
+            <p>Now that you know the steps, chain analysis is best learned through practice. Proceed to the practice section and let&apos;s try doing a guided chain analysis example!</p>
         </>
     )
 }
