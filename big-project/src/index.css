@@ -2115,6 +2115,10 @@ button{
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 42%;
 }
 
 .slide hr{

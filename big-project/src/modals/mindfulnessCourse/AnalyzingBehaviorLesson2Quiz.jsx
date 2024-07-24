@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { RiCloseLine } from "react-icons/ri";
 import confetti from "canvas-confetti";
+import axios from "axios";
 
-export default function AnalyzingBehaviorLesson2Quiz({ setAnalyzingBehaviorLesson2QuizIsOpen }) {
+export default function AnalyzingBehaviorLesson2Quiz({ setAnalyzingBehaviorLesson2QuizIsOpen, setIntroMindfulnessLesson1IsActive }) {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [correctAnswer, setCorrectAnswer] = useState(false);
     
@@ -14,6 +15,22 @@ export default function AnalyzingBehaviorLesson2Quiz({ setAnalyzingBehaviorLesso
         Slide4,
         Slide5,
     ]
+
+    const handleUpdateCourseProgress = async () => {
+        const token = localStorage.getItem('token');
+        try {
+            const response = await axios.patch('http://127.0.0.1:8000/update_course', {
+                intro_mindfulness_lesson_1 : true
+            }, {
+                headers: {
+                    'Authorization': `Token ${token}`
+                }
+            })
+            console.log(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     return(
         <div className="centered">
@@ -40,6 +57,8 @@ export default function AnalyzingBehaviorLesson2Quiz({ setAnalyzingBehaviorLesso
                         {currentSlide === slides.length - 1 && <button className="nextButton" onClick={() => {
                             setAnalyzingBehaviorLesson2QuizIsOpen(false); 
                             setCorrectAnswer(false);
+                            setIntroMindfulnessLesson1IsActive(true);
+                            handleUpdateCourseProgress();
                         }}>Finish!</button>}
                         {currentSlide !== slides.length - 1 && <button className={correctAnswer ? "nextButton" : "nextButton bad"} onClick={() => {
                             setCurrentSlide(currentSlide + 1);
