@@ -42,6 +42,7 @@ function Menu() {
               {!token && <Link to="/signup">Sign Up</Link>}
               {token && <Link to="/profile">My Profile</Link>}
               {token && <Link to="/" onClick={handleLogout}>Log Out</Link>}
+              <Link to="/about">About</Link>
               {/* Add more links as needed */}
             </div>
           )}
@@ -84,10 +85,14 @@ export default function Root() {
       <Outlet />
       <footer>
         <div className="footer-links">
-          <div className="footer-link">Link 1</div>
-          <div className="footer-link">Link 2</div>
-          <div className="footer-link">Link 3</div>
-          <div className="footer-link">Link 4</div>
+          <div className="footer-link">
+            <Link to="/">Home</Link>
+          </div>
+          <div className="footer-link">
+            <Link to="/about">About</Link>
+          </div>
+          {/* <div className="footer-link">Link 3</div>
+          <div className="footer-link">Link 4</div> */}
         </div>
         <div className="copyright">
           <p>MyDBTJourney</p>

@@ -135,6 +135,7 @@ footer{
   padding: 10px;
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   /* position: fixed;
   bottom: 0; */
   width: 100%;
@@ -147,7 +148,12 @@ footer{
 .footer-links{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 5px;
+  column-gap: 10px;
+}
+
+.footer-links a{
+  color: white;
+  text-decoration: none;
 }
 
 .copyright{
@@ -291,9 +297,21 @@ a{
   height: auto;
   background-color: lightgray;
   padding-top: 20px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
   width: 100%;
   font-family: "Quicksand", sans-serif;
+}
+
+.features-cards .about-button{
+  margin: auto;
+  background-color: #9E788F;
+  color: white;
+  height: 30px;
+  width: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.75);
 }
 
 .card{
@@ -331,6 +349,101 @@ a{
 .login-card .error{
   color: red;
   font-size: .8em;
+}
+
+/* About--------------------------------------------------------------------------------------------------------------- */
+
+.about-page{
+  font-family: "Quicksand", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-page .site-info{
+  background-image: url('/pictures/cole-keister-xMMh-VFGL9M-unsplash.jpg');
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.329);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.about-page .site-info h1{
+  margin-bottom: 10px;
+}
+
+.about-page .site-info p{
+  margin-top: 10px;
+}
+
+.about-page .site-info p span{
+  font-style: italic;
+}
+
+.creator-info{
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.creator-info h1{
+  color: #F4A261;
+}
+
+.creator-info .creator-pic{
+  background-image: url('/pictures/myAvatar.png');
+  background-size: contain;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.creator-info p{
+  margin-top: 10px;
+}
+
+.about-page hr{
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.111);
+}
+
+.contact-area{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: lightgray;
+  width: 100%;
+}
+
+.contact-form{
+  width: 90%;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.75);
+}
+
+.contact-form h1{
+  color: #F4A261;
+}
+
+.contact-form .formContainer textarea{
+  height: 100px;
+}
+
+.contact-form .formContainer textarea:focus-visible{
+  outline: none;
+  border: 2px solid #9E788F;
+}
+
+.contact-form .message-sent{
+  text-align: center;
+  color: #F4A261;
 }
 
 /* Sign Up--------------------------------------------------------------------------------------------------------- */
@@ -901,17 +1014,28 @@ form button:active{
 
 .chartContainer{
   background-color: white;
-  color: red;
-  font-size: 2rem;
-  font-weight: 800;
+  font-size: .8rem;
+  /* font-weight: 800; */
   margin-top: 10px;
   padding: 10px;
+  width: 100%;
 }
 
 .chart{
   border: 2px solid black;
-  height: 250px;
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  overflow: hidden;
 }
+
+.chart .bigger-chart{
+  height: 300px;
+}
+
 
 .toggleButtonsContainer{
   display: flex;
