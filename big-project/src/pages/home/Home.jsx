@@ -68,6 +68,9 @@ export default function Home() {
                             <p>Short on time? Need a flexible learning schedule? Learn as much as you want when you want!</p>
                         </div>
                     </div>
+                    <Link to="/about">
+                        <div className="about-button">Find out more</div>
+                    </Link>
                 </div>
             </main>
         </div>

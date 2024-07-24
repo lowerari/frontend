@@ -29,6 +29,7 @@ import GoalsPage from './pages/skills/interpersonal/GoalsPage'
 import ObtainingObjectivesPage from './pages/skills/interpersonal/ObtainingObjectivesPage'
 import BuildingRelationshipsPage from './pages/skills/interpersonal/BuildingRelationshipsPage'
 import MiddlePathPage from './pages/skills/interpersonal/MiddlePathPage'
+import About from './pages/About'
 
 const router = createBrowserRouter([
   {
@@ -142,6 +143,10 @@ const router = createBrowserRouter([
       {
         path: '/practice/interpersonal_effectiveness/walking_the_middle_path',
         element: <MiddlePathPage />
+      },
+      {
+        path: '/about',
+        element: <About />
       }
     ],
   }
