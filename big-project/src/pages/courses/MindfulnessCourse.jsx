@@ -16,6 +16,7 @@ import AnalyzingBehaviorLesson2 from "../../modals/mindfulnessCourse/AnalyzingBe
 import AnalyzingBehaviorLesson2Practice from "../../modals/mindfulnessCourse/AnalyzingBehaviorLesson2Practice";
 import AnalyzingBehaviorLesson2Quiz from "../../modals/mindfulnessCourse/AnalyzingBehaviorLesson2Quiz";
 import axios from "axios";
+import IntroMindfulnessLesson1 from "../../modals/mindfulnessCourse/IntroMindfulnessLesson1";
 
 export default function MindfulnessCourse() {
     const token = localStorage.getItem('token');
@@ -34,6 +35,7 @@ export default function MindfulnessCourse() {
     const [analyzingBehaviorLesson2IsOpen, setAnalyzingBehaviorLesson2IsOpen] = useState(false);
     const [analyzingBehaviorLesson2PracticeIsOpen, setAnalyzingBehaviorLesson2PracticeIsOpen] = useState(false);
     const [analyzingBehaviorLesson2QuizIsOpen, setAnalyzingBehaviorLesson2QuizIsOpen] = useState(false);
+    const [introMindfulnessLesson1IsOpen, setIntroMindfulnessLesson1IsOpen] = useState(false);
 
     const [orientationLesson1PracticeIsActive, setOrientationLesson1PracticeIsActive] = useState(false);
     const [orientationLesson1QuizIsActive, setOrientationLesson1QuizIsActive] = useState(false);
@@ -105,6 +107,7 @@ export default function MindfulnessCourse() {
                 setAnalyzingBehaviorLesson2IsActive(response.data[0].analyzing_behavior_lesson_2);
                 setAnalyzingBehaviorLesson2PracticeIsActive(response.data[0].analyzing_behavior_lesson_2_practice);
                 setAnalyzingBehaviorLesson2QuizIsActive(response.data[0].analyzing_behavior_lesson_2_quiz);
+                setIntroMindfulnessLesson1IsActive(response.data[0].intro_mindfulness_lesson_1);
             } catch (error) {
                 console.error(error);
             }
@@ -155,7 +158,7 @@ export default function MindfulnessCourse() {
             <div className="subCourse">
                 <div className="courseSubHeader">Intro to Mindfulness</div>
                 <div className="subCourseName">Goals of Mindfulness Practice</div>
-                <div className={introMindfulnessLesson1IsActive ? "courseLesson" : "courseLesson inactive"}><FaBookOpenReader /></div>
+                <div className={introMindfulnessLesson1IsActive ? "courseLesson" : "courseLesson inactive"} onClick={() => setIntroMindfulnessLesson1IsOpen(true)}><FaBookOpenReader /></div>
                 <div className={introMindfulnessLesson1PracticeIsActive ? "coursePractice" : "coursePractice inactive"}><FaPencilAlt /></div>
                 <div className={introMindfulnessLesson1QuizIsActive ? "courseQuiz" : "courseQuiz inactive"}><FaTrophy /></div>
                 <div className="subCourseName">Wise Mind</div>
@@ -222,7 +225,8 @@ export default function MindfulnessCourse() {
             {analyzingBehaviorLesson1QuizIsOpen && <AnalyzingBehaviorLesson1Quiz setAnalyzingBehaviorLesson1QuizIsOpen={setAnalyzingBehaviorLesson1QuizIsOpen} setAnalyzingBehaviorLesson2IsActive={setAnalyzingBehaviorLesson2IsActive} />}
             {analyzingBehaviorLesson2IsOpen && <AnalyzingBehaviorLesson2 setAnalyzingBehaviorLesson2IsOpen={setAnalyzingBehaviorLesson2IsOpen} setAnalyzingBehaviorLesson2PracticeIsActive={setAnalyzingBehaviorLesson2PracticeIsActive} />}
             {analyzingBehaviorLesson2PracticeIsOpen && <AnalyzingBehaviorLesson2Practice setAnalyzingBehaviorLesson2PracticeIsOpen={setAnalyzingBehaviorLesson2PracticeIsOpen} setAnalyzingBehaviorLesson2QuizIsActive={setAnalyzingBehaviorLesson2QuizIsActive} />}
-            {analyzingBehaviorLesson2QuizIsOpen && <AnalyzingBehaviorLesson2Quiz setAnalyzingBehaviorLesson2QuizIsOpen={setAnalyzingBehaviorLesson2QuizIsOpen} />}
+            {analyzingBehaviorLesson2QuizIsOpen && <AnalyzingBehaviorLesson2Quiz setAnalyzingBehaviorLesson2QuizIsOpen={setAnalyzingBehaviorLesson2QuizIsOpen} setIntroMindfulnessLesson1IsActive={setIntroMindfulnessLesson1IsActive} />}
+            {introMindfulnessLesson1IsOpen && <IntroMindfulnessLesson1 setIntroMindfulnessLesson1IsOpen={setIntroMindfulnessLesson1IsOpen} />}
             
         </div>
     )
